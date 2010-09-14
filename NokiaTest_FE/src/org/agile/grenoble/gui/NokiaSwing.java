@@ -1,11 +1,18 @@
 package org.agile.grenoble.gui;
 
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.Label;
 
-import org.agile.grenoble.data.Answers;
-import org.agile.grenoble.data.Question;
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-import java.awt.*;
+import org.agile.grenoble.questions.AnswersType;
+import org.agile.grenoble.questions.QuestionType;
+import org.agile.grenoble.questions.QuestionsType;
 
 
 public class NokiaSwing  extends JFrame {
@@ -23,12 +30,13 @@ public class NokiaSwing  extends JFrame {
 		initContent();
 	}
 
-	public void addQuestions(Question[] pQuestions) {		
+	public void addQuestions(QuestionsType pQuestions) {		
 		JPanel questionArea = generateQuestionArea();
 		
 		JPanel questionPanel = null;
-		for (int i=0; i < pQuestions.length; i++) {
-			questionPanel = addQuestion(pQuestions[i]);
+		
+		for (int i=0; i < pQuestions.getQuestionArray().length; i++) {
+			questionPanel = addQuestion(pQuestions.getQuestionArray()[i]);
 			questionArea.add(questionPanel);
 		}
 		
@@ -43,21 +51,21 @@ public class NokiaSwing  extends JFrame {
 		setTitle("Nokia Test") ;		
 	}
 		
-	private JPanel addQuestion(Question pQuestion) {
+	private JPanel addQuestion(QuestionType pQuestion) {
 		JPanel questionContainer = new JPanel();
-		questionContainer.setLayout(new GridLayout(pQuestion.getAnswers().getTexts().length+1, 1));
+		questionContainer.setLayout(new GridLayout(pQuestion.getAnswers().getAnswerArray().length+1, 1));
 
-		Label questionText = new Label(pQuestion.getQuestionText());
+		Label questionText = new Label(pQuestion.getLabel());
 		questionContainer.add(questionText);
 		
-		addAnswers(pQuestion, questionContainer);
+		addAnswers(pQuestion.getAnswers(), questionContainer);
 
 		return questionContainer;
 	}
 
-	private void addAnswers(Question pQuestion, JPanel questionContainer) {
-		for (int i = 0; i< pQuestion.getAnswers().getTexts().length; i++){
-			String answer =  pQuestion.getAnswers().getTexts()[i];
+	private void addAnswers(AnswersType pAnswers, JPanel questionContainer) {
+		for (int i = 0; i< pAnswers.getAnswerArray().length; i++){
+			String answer =  pAnswers.getAnswerArray()[i].getLabel();
 			Label answerText = new Label(answer);
 			questionContainer.add(answerText);
 		}

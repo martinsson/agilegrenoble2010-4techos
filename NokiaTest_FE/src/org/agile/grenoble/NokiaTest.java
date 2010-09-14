@@ -1,7 +1,8 @@
 package org.agile.grenoble;
 
-import org.agile.grenoble.data.*;
-import org.agile.grenoble.gui.*;
+import org.agile.grenoble.data.xml.QuestionsReader;
+import org.agile.grenoble.gui.NokiaSwing;
+import org.agile.grenoble.questions.QuestionsType;
 
 /**
  * 
@@ -19,26 +20,8 @@ public class NokiaTest {
 		return myDisplay;
 	}
 	
-	private static Question[] buildQuestions() {
-		Question[] questions = new Question[2];
-		questions[0]=new Question();
-		questions[0].setQuestionText("My first SingleChoice Agile question ? ");
-		Answers answers = new SingleChoice();
-		String[] texts= { "answers 1" , "answers 2" , "..." };
-		answers.setTexts(texts);
-		questions[0].setAnswers(answers);
-		
-		
-		questions[1]=new Question();
-		questions[1].setQuestionText("My first MultipleChoice Agile question ? ");
-		answers = new MultipleChoice();
-		//String[] texts= { "answers 1" , "answers 2" , "..." };
-		answers.setTexts(texts);
-		questions[1].setAnswers(answers);
-		return questions;
-	}
 	
-	private static void updateGraphics(NokiaSwing gui, Question[] questions) {
+	private static void updateGraphics(NokiaSwing gui, QuestionsType questions) {
 		gui.addQuestions(questions);
 	}
 	
@@ -49,7 +32,14 @@ public class NokiaTest {
 	public static void main (String[] argv) {
 		System.out.println("HEllo, welcome to the nokia test");
 		//parse arguments
-		Question[] questions = buildQuestions();
+		QuestionsType questions=null;
+		try {
+			QuestionsReader.printItems();
+			questions = QuestionsReader.readItems();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		//call master class
 		NokiaSwing gui = initMainGUI();
 		updateGraphics(gui,questions);
