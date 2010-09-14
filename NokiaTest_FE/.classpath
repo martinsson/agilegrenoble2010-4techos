@@ -2,5 +2,12 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionsType/bin/xmltypes.jar"/>
+	<classpathentry kind="lib" path="E:/build/xmlbeans-2.5.0/lib/xmlpublic.jar"/>
+	<classpathentry kind="lib" path="E:/build/xmlbeans-2.5.0/lib/jsr173_1.0_api.jar"/>
+	<classpathentry kind="lib" path="E:/build/xmlbeans-2.5.0/lib/resolver.jar"/>
+	<classpathentry kind="lib" path="E:/build/xmlbeans-2.5.0/lib/xbean.jar"/>
+	<classpathentry kind="lib" path="E:/build/xmlbeans-2.5.0/lib/xbean_xpath.jar"/>
+	<classpathentry kind="lib" path="E:/build/xmlbeans-2.5.0/lib/xmlbeans-qname.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
