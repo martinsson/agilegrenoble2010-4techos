@@ -1,0 +1,72 @@
+<org.agile.grenoble:Questions  xmlns:org.agile.grenoble="http://grenoble.agile.org/questions">
+	<org.agile.grenoble:Question>
+		<org.agile.grenoble:label>This is my first question</org.agile.grenoble:label>
+		<org.agile.grenoble:answers>
+			<org.agile.grenoble:configuration>
+				<org.agile.grenoble:type>single</org.agile.grenoble:type>
+            </org.agile.grenoble:configuration>
+			<org.agile.grenoble:answer>
+				<org.agile.grenoble:label>First answers</org.agile.grenoble:label>
+            </org.agile.grenoble:answer>
+			<org.agile.grenoble:answer>
+				<org.agile.grenoble:label>2nd answers</org.agile.grenoble:label>
+            </org.agile.grenoble:answer>
+        </org.agile.grenoble:answers>
+    </org.agile.grenoble:Question>
+
+	<org.agile.grenoble:Question>
+		<org.agile.grenoble:label>This is my 2nd question</org.agile.grenoble:label>
+		<org.agile.grenoble:answers>
+			<org.agile.grenoble:configuration>
+				<org.agile.grenoble:type>single</org.agile.grenoble:type>
+            </org.agile.grenoble:configuration>
+			<org.agile.grenoble:answer>
+				<org.agile.grenoble:label>First answers</org.agile.grenoble:label>
+            </org.agile.grenoble:answer>
+			<org.agile.grenoble:answer>
+				<org.agile.grenoble:label>2nd answers</org.agile.grenoble:label>
+            </org.agile.grenoble:answer>
+        </org.agile.grenoble:answers>
+    </org.agile.grenoble:Question>
+	
+	<org.agile.grenoble:Question>
+		<org.agile.grenoble:label>This is my 3rd question</org.agile.grenoble:label>
+		<org.agile.grenoble:answers>
+			<org.agile.grenoble:configuration>
+				<org.agile.grenoble:type>multiple</org.agile.grenoble:type>
+				<org.agile.grenoble:number>3</org.agile.grenoble:number>
+            </org.agile.grenoble:configuration>
+			<org.agile.grenoble:answer>
+				<org.agile.grenoble:label>Luc power</org.agile.grenoble:label>
+            </org.agile.grenoble:answer>
+			<org.agile.grenoble:answer>
+				<org.agile.grenoble:label>2nd answers</org.agile.grenoble:label>
+            </org.agile.grenoble:answer>
+			<org.agile.grenoble:answer>
+				<org.agile.grenoble:label>Luc Power 3</org.agile.grenoble:label>
+            </org.agile.grenoble:answer>
+			<org.agile.grenoble:answer>
+				<org.agile.grenoble:label>2nd answers</org.agile.grenoble:label>
+            </org.agile.grenoble:answer>
+			<org.agile.grenoble:answer>
+				<org.agile.grenoble:label>Luc Power 5</org.agile.grenoble:label>
+            </org.agile.grenoble:answer>
+        </org.agile.grenoble:answers>
+    </org.agile.grenoble:Question>
+	
+	<org.agile.grenoble:Question>
+		<org.agile.grenoble:label>This is my 4th question</org.agile.grenoble:label>
+		<org.agile.grenoble:answers>
+			<org.agile.grenoble:configuration>
+				<org.agile.grenoble:type>single</org.agile.grenoble:type>
+            </org.agile.grenoble:configuration>
+			<org.agile.grenoble:answer>
+				<org.agile.grenoble:label>First answers</org.agile.grenoble:label>
+            </org.agile.grenoble:answer>
+			<org.agile.grenoble:answer>
+				<org.agile.grenoble:label>2nd answers</org.agile.grenoble:label>
+            </org.agile.grenoble:answer>
+        </org.agile.grenoble:answers>
+    </org.agile.grenoble:Question>
+		
+</org.agile.grenoble:Questions>
