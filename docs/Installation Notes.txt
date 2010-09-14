@@ -1,0 +1,25 @@
+************************************************************************************
+DOWNLOAD
+************************************************************************************
+1) Hudson 
+	http://hudson-ci.org/
+	Download hudson.war : Latest and greatest 1.376
+2) Mysql 
+	http://www.mysql.fr/
+	mysql-5.1.50-win32.msi
+3) Glassfish
+	https://glassfish.dev.java.net/downloads/3.0.1-final.html
+	glassfish-3.0.1-windows.exe (EN)
+4) Java jdk 
+	https://cds.sun.com/is-bin/INTERSHOP.enfinity/WFS/CDS-CDS_Developer-Site/en_US/-/USD/ViewFilteredProducts-SingleVariationTypeFilter
+	1.6.21
+5) Eclipse 
+	http://www.eclipse.org/
+	eclipse-java-helios-win32.zip
+	
+************************************************************************************
+INSTALLATION
+************************************************************************************
+1) JDK : install in e:\java
+2) Eclipse : unzip in e:\
+
