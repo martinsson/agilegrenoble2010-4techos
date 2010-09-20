@@ -1,16 +1,15 @@
 Feature:
-  Afin de fournir le score à l'utilisateur
+  Afin de fournir le score total à l'utilisateur
   En tant que développeur
-  Je veux savoir calculer le score pour un passage de test
+  Je veux savoir calculer le score total pour un passage de test
 
-  Scenario Outline: Calcul du score sans réponses additionnelles
+  Scenario Outline: Calcul du score total pour les réponses de base
 
-    Given les réponses <réponse1>, <réponse2> ...
+    Given les réponses <réponse1>, <réponse2>, <réponse3>, <réponse4>, <réponse5>, <réponse6>, <réponse7>, <réponse8>, <réponse9>
 
+    When je calcule le score total
 
-    When je calcule le score
-
-    Then le score calculé est <score>
+    Then le score total devrait être <score>
 
 
   Examples:
@@ -18,15 +17,15 @@ Feature:
     | No iterations | Unit tested | Poor user stories | Product Owner not involved with team | Product Owner has burndown release with release date based on velocity | Estimate error < 10% | Burndown chart only burns down when story is done | Noone disrupting team, only Scrum roles | Team is in hyperproductive state | 64    |
 
 
-  Scenario Outline: Calcul du score avec réponses additionnelles
+  Scenario Outline: Le score des questions additionnelles s'ajoute au score de base
 
-    Given un score sans réponses additionnelles de 54
+    Given un score de base de 54
 
     And les options <question 7a>, <question 7b>
 
-    When je calcule le score
+    When je calcule le score total
 
-    Then le score calculé est <score>
+    Then le score total devrait être <score>
 
   Examples:
 
