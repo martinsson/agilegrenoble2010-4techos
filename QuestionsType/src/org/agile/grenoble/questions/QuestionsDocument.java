@@ -17,7 +17,7 @@ package org.agile.grenoble.questions;
 public interface QuestionsDocument extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(QuestionsDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s422F03461A2C1485E4984A7B473704E7").resolveHandle("questions0d48doctype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(QuestionsDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s32A2924D89A49183F5DC8C9EA3267D67").resolveHandle("questions0d48doctype");
     
     /**
      * Gets the "Questions" element

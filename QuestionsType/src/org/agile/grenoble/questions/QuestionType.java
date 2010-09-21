@@ -16,7 +16,7 @@ package org.agile.grenoble.questions;
 public interface QuestionType extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(QuestionType.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s422F03461A2C1485E4984A7B473704E7").resolveHandle("questiontypecb3dtype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(QuestionType.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s32A2924D89A49183F5DC8C9EA3267D67").resolveHandle("questiontypecb3dtype");
     
     /**
      * Gets the "label" element
@@ -37,6 +37,31 @@ public interface QuestionType extends org.apache.xmlbeans.XmlObject
      * Sets (as xml) the "label" element
      */
     void xsetLabel(org.apache.xmlbeans.XmlString label);
+    
+    /**
+     * Gets the "configuration" element
+     */
+    org.agile.grenoble.questions.ConfigurationType getConfiguration();
+    
+    /**
+     * True if has "configuration" element
+     */
+    boolean isSetConfiguration();
+    
+    /**
+     * Sets the "configuration" element
+     */
+    void setConfiguration(org.agile.grenoble.questions.ConfigurationType configuration);
+    
+    /**
+     * Appends and returns a new empty "configuration" element
+     */
+    org.agile.grenoble.questions.ConfigurationType addNewConfiguration();
+    
+    /**
+     * Unsets the "configuration" element
+     */
+    void unsetConfiguration();
     
     /**
      * Gets the "answers" element

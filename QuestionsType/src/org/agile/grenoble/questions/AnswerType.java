@@ -16,7 +16,7 @@ package org.agile.grenoble.questions;
 public interface AnswerType extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(AnswerType.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s422F03461A2C1485E4984A7B473704E7").resolveHandle("answertype5935type");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(AnswerType.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s32A2924D89A49183F5DC8C9EA3267D67").resolveHandle("answertype5935type");
     
     /**
      * Gets the "label" element
@@ -37,6 +37,36 @@ public interface AnswerType extends org.apache.xmlbeans.XmlObject
      * Sets (as xml) the "label" element
      */
     void xsetLabel(org.apache.xmlbeans.XmlString label);
+    
+    /**
+     * Gets the "point" element
+     */
+    java.lang.String getPoint();
+    
+    /**
+     * Gets (as xml) the "point" element
+     */
+    org.apache.xmlbeans.XmlString xgetPoint();
+    
+    /**
+     * True if has "point" element
+     */
+    boolean isSetPoint();
+    
+    /**
+     * Sets the "point" element
+     */
+    void setPoint(java.lang.String point);
+    
+    /**
+     * Sets (as xml) the "point" element
+     */
+    void xsetPoint(org.apache.xmlbeans.XmlString point);
+    
+    /**
+     * Unsets the "point" element
+     */
+    void unsetPoint();
     
     /**
      * A factory class with static methods for creating instances

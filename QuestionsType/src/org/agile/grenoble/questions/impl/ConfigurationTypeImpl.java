@@ -29,7 +29,7 @@ public class ConfigurationTypeImpl extends org.apache.xmlbeans.impl.values.XmlCo
     /**
      * Gets the "type" element
      */
-    public java.lang.String getType()
+    public org.agile.grenoble.questions.ConfigurationType.Type.Enum getType()
     {
         synchronized (monitor())
         {
@@ -40,20 +40,20 @@ public class ConfigurationTypeImpl extends org.apache.xmlbeans.impl.values.XmlCo
             {
                 return null;
             }
-            return target.getStringValue();
+            return (org.agile.grenoble.questions.ConfigurationType.Type.Enum)target.getEnumValue();
         }
     }
     
     /**
      * Gets (as xml) the "type" element
      */
-    public org.apache.xmlbeans.XmlString xgetType()
+    public org.agile.grenoble.questions.ConfigurationType.Type xgetType()
     {
         synchronized (monitor())
         {
             check_orphaned();
-            org.apache.xmlbeans.XmlString target = null;
-            target = (org.apache.xmlbeans.XmlString)get_store().find_element_user(TYPE$0, 0);
+            org.agile.grenoble.questions.ConfigurationType.Type target = null;
+            target = (org.agile.grenoble.questions.ConfigurationType.Type)get_store().find_element_user(TYPE$0, 0);
             return target;
         }
     }
@@ -61,7 +61,7 @@ public class ConfigurationTypeImpl extends org.apache.xmlbeans.impl.values.XmlCo
     /**
      * Sets the "type" element
      */
-    public void setType(java.lang.String type)
+    public void setType(org.agile.grenoble.questions.ConfigurationType.Type.Enum type)
     {
         synchronized (monitor())
         {
@@ -72,23 +72,23 @@ public class ConfigurationTypeImpl extends org.apache.xmlbeans.impl.values.XmlCo
             {
                 target = (org.apache.xmlbeans.SimpleValue)get_store().add_element_user(TYPE$0);
             }
-            target.setStringValue(type);
+            target.setEnumValue(type);
         }
     }
     
     /**
      * Sets (as xml) the "type" element
      */
-    public void xsetType(org.apache.xmlbeans.XmlString type)
+    public void xsetType(org.agile.grenoble.questions.ConfigurationType.Type type)
     {
         synchronized (monitor())
         {
             check_orphaned();
-            org.apache.xmlbeans.XmlString target = null;
-            target = (org.apache.xmlbeans.XmlString)get_store().find_element_user(TYPE$0, 0);
+            org.agile.grenoble.questions.ConfigurationType.Type target = null;
+            target = (org.agile.grenoble.questions.ConfigurationType.Type)get_store().find_element_user(TYPE$0, 0);
             if (target == null)
             {
-                target = (org.apache.xmlbeans.XmlString)get_store().add_element_user(TYPE$0);
+                target = (org.agile.grenoble.questions.ConfigurationType.Type)get_store().add_element_user(TYPE$0);
             }
             target.set(type);
         }
@@ -183,6 +183,25 @@ public class ConfigurationTypeImpl extends org.apache.xmlbeans.impl.values.XmlCo
         {
             check_orphaned();
             get_store().remove_element(NUMBER$2, 0);
+        }
+    }
+    /**
+     * An XML type(@http://grenoble.agile.org/questions).
+     *
+     * This is an atomic type that is a restriction of org.agile.grenoble.questions.ConfigurationType$Type.
+     */
+    public static class TypeImpl extends org.apache.xmlbeans.impl.values.JavaStringEnumerationHolderEx implements org.agile.grenoble.questions.ConfigurationType.Type
+    {
+        private static final long serialVersionUID = 1L;
+        
+        public TypeImpl(org.apache.xmlbeans.SchemaType sType)
+        {
+            super(sType, false);
+        }
+        
+        protected TypeImpl(org.apache.xmlbeans.SchemaType sType, boolean b)
+        {
+            super(sType, b);
         }
     }
 }

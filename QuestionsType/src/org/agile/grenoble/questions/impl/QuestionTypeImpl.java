@@ -22,7 +22,9 @@ public class QuestionTypeImpl extends org.apache.xmlbeans.impl.values.XmlComplex
     
     private static final javax.xml.namespace.QName LABEL$0 = 
         new javax.xml.namespace.QName("http://grenoble.agile.org/questions", "label");
-    private static final javax.xml.namespace.QName ANSWERS$2 = 
+    private static final javax.xml.namespace.QName CONFIGURATION$2 = 
+        new javax.xml.namespace.QName("http://grenoble.agile.org/questions", "configuration");
+    private static final javax.xml.namespace.QName ANSWERS$4 = 
         new javax.xml.namespace.QName("http://grenoble.agile.org/questions", "answers");
     
     
@@ -95,6 +97,70 @@ public class QuestionTypeImpl extends org.apache.xmlbeans.impl.values.XmlComplex
     }
     
     /**
+     * Gets the "configuration" element
+     */
+    public org.agile.grenoble.questions.ConfigurationType getConfiguration()
+    {
+        synchronized (monitor())
+        {
+            check_orphaned();
+            org.agile.grenoble.questions.ConfigurationType target = null;
+            target = (org.agile.grenoble.questions.ConfigurationType)get_store().find_element_user(CONFIGURATION$2, 0);
+            if (target == null)
+            {
+                return null;
+            }
+            return target;
+        }
+    }
+    
+    /**
+     * True if has "configuration" element
+     */
+    public boolean isSetConfiguration()
+    {
+        synchronized (monitor())
+        {
+            check_orphaned();
+            return get_store().count_elements(CONFIGURATION$2) != 0;
+        }
+    }
+    
+    /**
+     * Sets the "configuration" element
+     */
+    public void setConfiguration(org.agile.grenoble.questions.ConfigurationType configuration)
+    {
+        generatedSetterHelperImpl(configuration, CONFIGURATION$2, 0, org.apache.xmlbeans.impl.values.XmlObjectBase.KIND_SETTERHELPER_SINGLETON);
+    }
+    
+    /**
+     * Appends and returns a new empty "configuration" element
+     */
+    public org.agile.grenoble.questions.ConfigurationType addNewConfiguration()
+    {
+        synchronized (monitor())
+        {
+            check_orphaned();
+            org.agile.grenoble.questions.ConfigurationType target = null;
+            target = (org.agile.grenoble.questions.ConfigurationType)get_store().add_element_user(CONFIGURATION$2);
+            return target;
+        }
+    }
+    
+    /**
+     * Unsets the "configuration" element
+     */
+    public void unsetConfiguration()
+    {
+        synchronized (monitor())
+        {
+            check_orphaned();
+            get_store().remove_element(CONFIGURATION$2, 0);
+        }
+    }
+    
+    /**
      * Gets the "answers" element
      */
     public org.agile.grenoble.questions.AnswersType getAnswers()
@@ -103,7 +169,7 @@ public class QuestionTypeImpl extends org.apache.xmlbeans.impl.values.XmlComplex
         {
             check_orphaned();
             org.agile.grenoble.questions.AnswersType target = null;
-            target = (org.agile.grenoble.questions.AnswersType)get_store().find_element_user(ANSWERS$2, 0);
+            target = (org.agile.grenoble.questions.AnswersType)get_store().find_element_user(ANSWERS$4, 0);
             if (target == null)
             {
                 return null;
@@ -117,7 +183,7 @@ public class QuestionTypeImpl extends org.apache.xmlbeans.impl.values.XmlComplex
      */
     public void setAnswers(org.agile.grenoble.questions.AnswersType answers)
     {
-        generatedSetterHelperImpl(answers, ANSWERS$2, 0, org.apache.xmlbeans.impl.values.XmlObjectBase.KIND_SETTERHELPER_SINGLETON);
+        generatedSetterHelperImpl(answers, ANSWERS$4, 0, org.apache.xmlbeans.impl.values.XmlObjectBase.KIND_SETTERHELPER_SINGLETON);
     }
     
     /**
@@ -129,7 +195,7 @@ public class QuestionTypeImpl extends org.apache.xmlbeans.impl.values.XmlComplex
         {
             check_orphaned();
             org.agile.grenoble.questions.AnswersType target = null;
-            target = (org.agile.grenoble.questions.AnswersType)get_store().add_element_user(ANSWERS$2);
+            target = (org.agile.grenoble.questions.AnswersType)get_store().add_element_user(ANSWERS$4);
             return target;
         }
     }

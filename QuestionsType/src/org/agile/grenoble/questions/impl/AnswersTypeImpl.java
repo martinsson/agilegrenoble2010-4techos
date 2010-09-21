@@ -45,6 +45,18 @@ public class AnswersTypeImpl extends org.apache.xmlbeans.impl.values.XmlComplexC
     }
     
     /**
+     * True if has "configuration" element
+     */
+    public boolean isSetConfiguration()
+    {
+        synchronized (monitor())
+        {
+            check_orphaned();
+            return get_store().count_elements(CONFIGURATION$0) != 0;
+        }
+    }
+    
+    /**
      * Sets the "configuration" element
      */
     public void setConfiguration(org.agile.grenoble.questions.ConfigurationType configuration)
@@ -63,6 +75,18 @@ public class AnswersTypeImpl extends org.apache.xmlbeans.impl.values.XmlComplexC
             org.agile.grenoble.questions.ConfigurationType target = null;
             target = (org.agile.grenoble.questions.ConfigurationType)get_store().add_element_user(CONFIGURATION$0);
             return target;
+        }
+    }
+    
+    /**
+     * Unsets the "configuration" element
+     */
+    public void unsetConfiguration()
+    {
+        synchronized (monitor())
+        {
+            check_orphaned();
+            get_store().remove_element(CONFIGURATION$0, 0);
         }
     }
     

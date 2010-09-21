@@ -16,12 +16,17 @@ package org.agile.grenoble.questions;
 public interface AnswersType extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(AnswersType.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s422F03461A2C1485E4984A7B473704E7").resolveHandle("answerstype6ebatype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(AnswersType.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s32A2924D89A49183F5DC8C9EA3267D67").resolveHandle("answerstype6ebatype");
     
     /**
      * Gets the "configuration" element
      */
     org.agile.grenoble.questions.ConfigurationType getConfiguration();
+    
+    /**
+     * True if has "configuration" element
+     */
+    boolean isSetConfiguration();
     
     /**
      * Sets the "configuration" element
@@ -32,6 +37,11 @@ public interface AnswersType extends org.apache.xmlbeans.XmlObject
      * Appends and returns a new empty "configuration" element
      */
     org.agile.grenoble.questions.ConfigurationType addNewConfiguration();
+    
+    /**
+     * Unsets the "configuration" element
+     */
+    void unsetConfiguration();
     
     /**
      * Gets array of all "answer" elements
