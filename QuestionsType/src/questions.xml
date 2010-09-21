@@ -210,11 +210,11 @@
 		
 	<org.agile.grenoble:Question>
 		<org.agile.grenoble:label>This is my 3rd question</org.agile.grenoble:label>
-		<org.agile.grenoble:answers>
-			<org.agile.grenoble:configuration>
+		<org.agile.grenoble:configuration>
 				<org.agile.grenoble:type>multiple</org.agile.grenoble:type>
 				<org.agile.grenoble:number>3</org.agile.grenoble:number>
-            </org.agile.grenoble:configuration>
+        </org.agile.grenoble:configuration>
+		<org.agile.grenoble:answers>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Luc power</org.agile.grenoble:label>
             </org.agile.grenoble:answer>
