@@ -14,10 +14,8 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
-import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
-import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -25,9 +23,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.JRadioButtonMenuItem;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 import org.agile.grenoble.questions.AnswersType;
 import org.agile.grenoble.questions.ConfigurationType;
@@ -185,19 +180,20 @@ public class NokiaSwing  extends JFrame {
 		Label questionText = new Label(pQuestion.getLabel());
 		questionContainer.add(questionText);
 		
-		addAnswers(pQuestion.getAnswers(), questionContainer);
+		addAnswers(pQuestion.getConfiguration(), pQuestion.getAnswers(), questionContainer);
 
 		return questionContainer;
 	}
 
-	private void addAnswers(AnswersType pAnswers, JPanel questionContainer) throws Exception {
-		ConfigurationType conf =pAnswers.getConfiguration() ; 
-		if (conf.getType().equals("single")) {
+	private void addAnswers(ConfigurationType conf, AnswersType pAnswers, JPanel questionContainer) throws Exception {
+		 if (conf == null || conf.getType() == null ) {
+			//don't add anything
+			return ;
+		}
+		if (conf.getType() == ConfigurationType.Type.SINGLE) {
 			addRadioAnswers(pAnswers,questionContainer);	
-		} else if (conf.getType().equals("multiple")) {
-			addCheckAnswers(pAnswers,questionContainer);
-		} else if  (conf.getType().equals("complex")) {
-			addComplexAnswers(pAnswers,questionContainer);
+		} else if (conf.getType() == ConfigurationType.Type.MULTIPLE) {
+			addCheckAnswers(conf,pAnswers,questionContainer);
 		} else {
 			//ERROR 
 			throw new Exception("UNKNOWN question type :" + conf.getType());
@@ -209,8 +205,8 @@ public class NokiaSwing  extends JFrame {
 	}
 
 	
-	private void addCheckAnswers(AnswersType pAnswers, JPanel questionContainer) {
-		myCheckGroup buttonGroup = new myCheckGroup(pAnswers.getConfiguration().getNumber()) ;
+	private void addCheckAnswers(ConfigurationType conf,AnswersType pAnswers, JPanel questionContainer) {
+		myCheckGroup buttonGroup = new myCheckGroup(conf.getNumber()) ;
 		//ButtonGroup buttonGroup = new ButtonGroup() ;
 		//buttonGroup.
 		for (int i = 0; i< pAnswers.getAnswerArray().length; i++){

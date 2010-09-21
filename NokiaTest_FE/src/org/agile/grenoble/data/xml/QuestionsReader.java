@@ -48,12 +48,14 @@ import org.agile.grenoble.questions.QuestionsType;
 	        	QuestionType q = questions[i];
 	        	System.out.println ("----" + q.getLabel());
 	        	AnswersType at = q.getAnswers();
-	        	ConfigurationType ct = at.getConfiguration();
-	        	System.out.println("Configuration = " + ct.getType() + "/" + ct.getNumber());
+	        	ConfigurationType ct = q.getConfiguration();
+	        	if (ct != null ) {
+	        		System.out.println("Configuration = " + ct.getType() + "/" + ct.getNumber());
+	        	}
 	        	AnswerType[] answers = at.getAnswerArray();
 	        	for (int j=0; j<answers.length; j++) {
 	        		AnswerType a = answers[j];
-	        		System.out.println("      + " + a.getLabel());
+	        		System.out.println("      + " + a.getLabel() + "-> " + a.getPoint() +"points ");
 	        	}	        	
 	        }
 	}
