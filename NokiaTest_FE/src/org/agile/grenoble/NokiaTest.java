@@ -1,6 +1,7 @@
 package org.agile.grenoble;
 
 import org.agile.grenoble.data.xml.QuestionsReader;
+import org.agile.grenoble.gui.NokiaControler;
 import org.agile.grenoble.gui.NokiaSwing;
 import org.agile.grenoble.questions.QuestionsType;
 
@@ -21,10 +22,6 @@ public class NokiaTest {
 	}
 	
 	
-	private static void updateGraphics(NokiaSwing gui, QuestionsType questions) {
-		gui.addQuestions(questions);
-	}
-	
 	/**
 	 * 
 	 * @param argv
@@ -34,15 +31,30 @@ public class NokiaTest {
 		//parse arguments
 		QuestionsType questions=null;
 		try {
-			QuestionsReader.printItems();
-			questions = QuestionsReader.readItems();
+			String filename = "E:\\build\\workspace\\NokiaTest_FE\\src\\org\\agile\\grenoble\\data\\xml\\questions.xml" ;
+			QuestionsReader.printItems(filename);
+			questions = QuestionsReader.readItems(filename);
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		//call master class
 		NokiaSwing gui = initMainGUI();
-		updateGraphics(gui,questions);
+		gui.generateQuestionDisplay(questions);
+		NokiaControler nc = new NokiaControler();
+		nc.setNokiaSwing(gui);
+		nc.setQuestions(questions);
+		
+		try {
+			Thread.currentThread().sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		nc.startQuestions();
+		
+		
+		
 		System.out.println("HEllo, end of the nokia test");
 	}
 
