@@ -1,11 +1,11 @@
-<org.agile.grenoble:Questions  xmlns:org.agile.grenoble="http://grenoble.agile.org/questions">
+<org.agile.grenoble:Questions xmlns:org.agile.grenoble="http://grenoble.agile.org/questions">
 	
 	<org.agile.grenoble:Question>
 		<org.agile.grenoble:label>Q1 : How long are your Iterations</org.agile.grenoble:label>
+		<org.agile.grenoble:configuration>
+			<org.agile.grenoble:type>single</org.agile.grenoble:type>
+        </org.agile.grenoble:configuration>
 		<org.agile.grenoble:answers>
-			<org.agile.grenoble:configuration>
-				<org.agile.grenoble:type>single</org.agile.grenoble:type>
-            </org.agile.grenoble:configuration>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>No Iteration</org.agile.grenoble:label>
 				<org.agile.grenoble:point>0</org.agile.grenoble:point>
@@ -36,11 +36,10 @@
 	
     <org.agile.grenoble:Question>
 		<org.agile.grenoble:label>Q2: Testing within the Sprint</org.agile.grenoble:label>
-		<org.agile.grenoble:answers>
-	</org.agile.grenoble:Question>
-			<org.agile.grenoble:configuration>
+		<org.agile.grenoble:configuration>
 				<org.agile.grenoble:type>single</org.agile.grenoble:type>
-            </org.agile.grenoble:configuration>
+        </org.agile.grenoble:configuration>
+		<org.agile.grenoble:answers>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>No dedicated QA</org.agile.grenoble:label>
 				<org.agile.grenoble:point>0</org.agile.grenoble:point>
@@ -66,15 +65,14 @@
 				<org.agile.grenoble:point>10</org.agile.grenoble:point>
             </org.agile.grenoble:answer>
         </org.agile.grenoble:answers>
-    
+    </org.agile.grenoble:Question>
 	
 	<org.agile.grenoble:Question>
 		<org.agile.grenoble:label>Q3 : Agile Specification </org.agile.grenoble:label>
+		<org.agile.grenoble:configuration>
+			<org.agile.grenoble:type>single</org.agile.grenoble:type>
+        </org.agile.grenoble:configuration>
 		<org.agile.grenoble:answers>
-	</org.agile.grenoble:Question>
-			<org.agile.grenoble:configuration>
-				<org.agile.grenoble:type>single</org.agile.grenoble:type>
-            </org.agile.grenoble:configuration>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>No requirements</org.agile.grenoble:label>
 				<org.agile.grenoble:point>0</org.agile.grenoble:point>
@@ -104,14 +102,14 @@
 				<org.agile.grenoble:point>10</org.agile.grenoble:point>
             </org.agile.grenoble:answer>
         </org.agile.grenoble:answers>
+	</org.agile.grenoble:Question>
 
 	<org.agile.grenoble:Question>
 		<org.agile.grenoble:label>Q4: Product Owner</org.agile.grenoble:label>
+		<org.agile.grenoble:configuration>
+			<org.agile.grenoble:type>single</org.agile.grenoble:type>
+        </org.agile.grenoble:configuration>
 		<org.agile.grenoble:answers>
-	
-			<org.agile.grenoble:configuration>
-				<org.agile.grenoble:type>single</org.agile.grenoble:type>
-            </org.agile.grenoble:configuration>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>No Product Owner</org.agile.grenoble:label>
 				<org.agile.grenoble:point>0</org.agile.grenoble:point>
@@ -145,10 +143,10 @@
 
 	<org.agile.grenoble:Question>
 		<org.agile.grenoble:label></org.agile.grenoble:label>
+		<org.agile.grenoble:configuration>
+			<org.agile.grenoble:type>single</org.agile.grenoble:type>
+        </org.agile.grenoble:configuration>
 		<org.agile.grenoble:answers>
-			<org.agile.grenoble:configuration>
-				<org.agile.grenoble:type>single</org.agile.grenoble:type>
-            </org.agile.grenoble:configuration>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label></org.agile.grenoble:label>
 				<org.agile.grenoble:point></org.agile.grenoble:point>
@@ -178,10 +176,10 @@
 	
     <org.agile.grenoble:Question>
 		<org.agile.grenoble:label></org.agile.grenoble:label>
+		<org.agile.grenoble:configuration>
+			<org.agile.grenoble:type>single</org.agile.grenoble:type>
+        </org.agile.grenoble:configuration>
 		<org.agile.grenoble:answers>
-			<org.agile.grenoble:configuration>
-				<org.agile.grenoble:type>single</org.agile.grenoble:type>
-            </org.agile.grenoble:configuration>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label></org.agile.grenoble:label>
 				<org.agile.grenoble:point></org.agile.grenoble:point>
@@ -209,72 +207,6 @@
         </org.agile.grenoble:answers>
     </org.agile.grenoble:Question>
 	
-	<org.agile.grenoble:Question>
-		<org.agile.grenoble:label></org.agile.grenoble:label>
-		<org.agile.grenoble:answers>
-			<org.agile.grenoble:configuration>
-				<org.agile.grenoble:type>single</org.agile.grenoble:type>
-            </org.agile.grenoble:configuration>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-        </org.agile.grenoble:answers>
-    </org.agile.grenoble:Question>
-	
-	<org.agile.grenoble:Question>
-		<org.agile.grenoble:label></org.agile.grenoble:label>
-		<org.agile.grenoble:answers>
-			<org.agile.grenoble:configuration>
-				<org.agile.grenoble:type>single</org.agile.grenoble:type>
-            </org.agile.grenoble:configuration>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-        </org.agile.grenoble:answers>
-    </org.agile.grenoble:Question>
-
 		
 	<org.agile.grenoble:Question>
 		<org.agile.grenoble:label>This is my 3rd question</org.agile.grenoble:label>
@@ -301,29 +233,13 @@
         </org.agile.grenoble:answers>
     </org.agile.grenoble:Question>
 	
+
 	<org.agile.grenoble:Question>
-		<org.agile.grenoble:label>This is my 4th question</org.agile.grenoble:label>
-		<org.agile.grenoble:answers>
-			<org.agile.grenoble:configuration>
-				<org.agile.grenoble:type>single</org.agile.grenoble:type>
-            </org.agile.grenoble:configuration>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label>First answers</org.agile.grenoble:label>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label>2nd answers</org.agile.grenoble:label>
-            </org.agile.grenoble:answer>
-        </org.agile.grenoble:answers>
-    </org.agile.grenoble:Question>
-	
-
-
-<org.agile.grenoble:Question>
 		<org.agile.grenoble:label></org.agile.grenoble:label>
+		<org.agile.grenoble:configuration>
+			<org.agile.grenoble:type>single</org.agile.grenoble:type>
+        </org.agile.grenoble:configuration>
 		<org.agile.grenoble:answers>
-			<org.agile.grenoble:configuration>
-				<org.agile.grenoble:type>single</org.agile.grenoble:type>
-            </org.agile.grenoble:configuration>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label></org.agile.grenoble:label>
 				<org.agile.grenoble:point></org.agile.grenoble:point>
