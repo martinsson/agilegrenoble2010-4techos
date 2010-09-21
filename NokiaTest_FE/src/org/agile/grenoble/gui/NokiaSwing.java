@@ -127,21 +127,21 @@ public class NokiaSwing  extends JFrame {
 		JPanel hp = new JPanel();
 		//JButton logoAgilent = new JButton("Agilent") ;
 		//JButton logoAgilent = new JButton("Agilent");
-		JLabel picLabel = getImage();
-		hp.add( picLabel ) ;
+		JLabel logoAgilent = getImage("E:\\build\\workspace\\NokiaTest_FE\\src\\resources\\images\\agilentlogo-home.gif");
+		JLabel logoKelkoo = getImage("E:\\build\\workspace\\NokiaTest_FE\\src\\resources\\images\\kelkoo.jpg");
+		JLabel logoFT = getImage("E:\\build\\workspace\\NokiaTest_FE\\src\\resources\\images\\orange-labs.jpg");
 		  
-		JButton logoKelkoo = new JButton("Kelkoo") ;
-		JButton logoFT = new JButton("FT") ;
 		//hp.add(logoAgilent);
+		hp.add( logoAgilent ) ;
 		hp.add(logoKelkoo);
 		hp.add(logoFT);
 		return hp; 
 	}
 
-	private JLabel getImage() {
+	private JLabel getImage(String filename) {
 		BufferedImage myPicture=null;
 		try {
-			myPicture = ImageIO.read(new File("E:\\build\\workspace\\NokiaTest_FE\\src\\resources\\images\\agilentlogo-home.gif"));
+			myPicture = ImageIO.read(new File(filename));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
