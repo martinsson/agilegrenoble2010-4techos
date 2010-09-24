@@ -4,13 +4,9 @@ Feature:
   Je veux savoir calculer le score total pour un passage de test
 
   Scenario Outline: Calcul du score total pour les réponses de base
-
     Given les réponses <réponse1>, <réponse2>, <réponse3>, <réponse4>, <réponse5>, <réponse6>, <réponse7>, <réponse8>, <réponse9>
-
     When je calcule le score total
-
     Then le score total devrait être <score>
-
 
   Examples:
     | réponse1      | réponse2    | réponse3          | réponse4                             | réponse5                                                               | réponse6             | réponse7                                          | réponse8                                | réponse9                         | score |
@@ -18,17 +14,12 @@ Feature:
 
 
   Scenario Outline: Le score des questions additionnelles s'ajoute au score de base
-
     Given un score de base de 54
-
     And les options <question 7a>, <question 7b>
-
     When je calcule le score total
-
     Then le score total devrait être <score>
 
   Examples:
-
     | question 7a                          | question 7b                                                     | score |
     | In addition, Team knows its velocity | N.A.                                                            | 58    |
     | N.A.                                 | N.A.                                                            | 54    |
