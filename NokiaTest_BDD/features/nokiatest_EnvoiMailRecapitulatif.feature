@@ -1,3 +1,6 @@
+# language: en
+# encoding: UTF-8
+
 Feature:
   Afin de disposer d'une trace local de mon passage du test Nokia 
   En tant qu'utilisateur
@@ -16,9 +19,9 @@ Feature:
     Then je devrais être averti que mon adresse n'est pas bien formatée
     And le bouton "Envoyer par mail" devrait rester inactif
   Examples:
-    | email | 
-    | test nokia@agilegrenoble.fr | # adresse avec un espace
-    | test.nokia.agilegrenoble.fr | # adresse sans arrobase
+    | email | commentaire |
+    | test nokia@agilegrenoble.fr | adresse avec un espace |
+    | test.nokia.agilegrenoble.fr | adresse sans arrobase |
 
 
  Scenario: Je réceptionne bien le mail récapitulatif

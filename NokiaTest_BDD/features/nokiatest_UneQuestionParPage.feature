@@ -1,3 +1,6 @@
+# language: en
+# encoding: UTF-8
+
 Feature:
   Afin de faciliter la saisie du test Nokia
   En tant qu'utilisateur

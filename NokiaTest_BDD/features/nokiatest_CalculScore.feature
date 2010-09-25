@@ -1,3 +1,6 @@
+# language: en
+# encoding: UTF-8
+
 Feature:
   Afin de fournir le score total à l'utilisateur
   En tant que développeur
