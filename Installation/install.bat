@@ -29,5 +29,6 @@ rem  "jdk-6u21-windows-i586.exe" /l* java.log INSTALLDIR=e:\java\jdk1.6.0_21 /qn
 rem ***************************************************************
 rem INSTALLATION MYSQL
 rem ***************************************************************
-rem e:\tools\wget\bin\wget.exe 
-msiexec /i mysql-5.1.50-win32.msi /l* mysql.log INSTALLDIR="E:\MySQL\Server 5.1\" DATADIR="E:\data\MySQL\" /qn
+rem e:\tools\wget\bin\wget.exe http://10.190.200.129:8081/artifactory/ext-releases-local/com/oracle/mysql/mysqlserver/5.1.50/mysqlserver-5.1.50-win32.msi
+rem msiexec /i mysqlserver-5.1.50-win32.msi /l* mysql.log INSTALLDIR="E:\MySQL\Server 5.1\" DATADIR="E:\data\MySQL\" /qn
+
