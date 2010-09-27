@@ -1,5 +1,6 @@
 package org.agile.grenoble;
 
+import org.agile.grenoble.data.AnswersStorage;
 import org.agile.grenoble.data.xml.QuestionsReader;
 import org.agile.grenoble.gui.NokiaControler;
 import org.agile.grenoble.gui.NokiaSwing;
@@ -30,7 +31,9 @@ public class NokiaTest {
 		System.out.println("HEllo, welcome to the nokia test");
 		//parse arguments
 		QuestionsType questions=null;
+		AnswersStorage storage = new AnswersStorage();
 		try {
+			storage.initializeDB();
 			String filename = "E:\\build\\workspace\\NokiaTest_FE\\src\\org\\agile\\grenoble\\data\\xml\\questions.xml" ;
 			QuestionsReader.printItems(filename);
 			questions = QuestionsReader.readItems(filename);
