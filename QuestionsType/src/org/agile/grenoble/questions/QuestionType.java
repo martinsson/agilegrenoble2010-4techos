@@ -16,7 +16,7 @@ package org.agile.grenoble.questions;
 public interface QuestionType extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(QuestionType.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s32A2924D89A49183F5DC8C9EA3267D67").resolveHandle("questiontypecb3dtype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(QuestionType.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sE5824B5D8561689F60EFBB22B530B038").resolveHandle("questiontypecb3dtype");
     
     /**
      * Gets the "label" element
@@ -44,11 +44,6 @@ public interface QuestionType extends org.apache.xmlbeans.XmlObject
     org.agile.grenoble.questions.ConfigurationType getConfiguration();
     
     /**
-     * True if has "configuration" element
-     */
-    boolean isSetConfiguration();
-    
-    /**
      * Sets the "configuration" element
      */
     void setConfiguration(org.agile.grenoble.questions.ConfigurationType configuration);
@@ -59,14 +54,14 @@ public interface QuestionType extends org.apache.xmlbeans.XmlObject
     org.agile.grenoble.questions.ConfigurationType addNewConfiguration();
     
     /**
-     * Unsets the "configuration" element
-     */
-    void unsetConfiguration();
-    
-    /**
      * Gets the "answers" element
      */
     org.agile.grenoble.questions.AnswersType getAnswers();
+    
+    /**
+     * True if has "answers" element
+     */
+    boolean isSetAnswers();
     
     /**
      * Sets the "answers" element
@@ -77,6 +72,51 @@ public interface QuestionType extends org.apache.xmlbeans.XmlObject
      * Appends and returns a new empty "answers" element
      */
     org.agile.grenoble.questions.AnswersType addNewAnswers();
+    
+    /**
+     * Unsets the "answers" element
+     */
+    void unsetAnswers();
+    
+    /**
+     * Gets array of all "Question" elements
+     */
+    org.agile.grenoble.questions.QuestionType[] getQuestionArray();
+    
+    /**
+     * Gets ith "Question" element
+     */
+    org.agile.grenoble.questions.QuestionType getQuestionArray(int i);
+    
+    /**
+     * Returns number of "Question" element
+     */
+    int sizeOfQuestionArray();
+    
+    /**
+     * Sets array of all "Question" element
+     */
+    void setQuestionArray(org.agile.grenoble.questions.QuestionType[] questionArray);
+    
+    /**
+     * Sets ith "Question" element
+     */
+    void setQuestionArray(int i, org.agile.grenoble.questions.QuestionType question);
+    
+    /**
+     * Inserts and returns a new empty value (as xml) as the ith "Question" element
+     */
+    org.agile.grenoble.questions.QuestionType insertNewQuestion(int i);
+    
+    /**
+     * Appends and returns a new empty value (as xml) as the last "Question" element
+     */
+    org.agile.grenoble.questions.QuestionType addNewQuestion();
+    
+    /**
+     * Removes the ith "Question" element
+     */
+    void removeQuestion(int i);
     
     /**
      * A factory class with static methods for creating instances

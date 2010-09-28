@@ -16,7 +16,7 @@ package org.agile.grenoble.questions;
 public interface QuestionsType extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(QuestionsType.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s32A2924D89A49183F5DC8C9EA3267D67").resolveHandle("questionstype3db2type");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(QuestionsType.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sE5824B5D8561689F60EFBB22B530B038").resolveHandle("questionstype3db2type");
     
     /**
      * Gets array of all "Question" elements

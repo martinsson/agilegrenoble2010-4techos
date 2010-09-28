@@ -20,75 +20,9 @@ public class AnswersTypeImpl extends org.apache.xmlbeans.impl.values.XmlComplexC
         super(sType);
     }
     
-    private static final javax.xml.namespace.QName CONFIGURATION$0 = 
-        new javax.xml.namespace.QName("http://grenoble.agile.org/questions", "configuration");
-    private static final javax.xml.namespace.QName ANSWER$2 = 
+    private static final javax.xml.namespace.QName ANSWER$0 = 
         new javax.xml.namespace.QName("http://grenoble.agile.org/questions", "answer");
     
-    
-    /**
-     * Gets the "configuration" element
-     */
-    public org.agile.grenoble.questions.ConfigurationType getConfiguration()
-    {
-        synchronized (monitor())
-        {
-            check_orphaned();
-            org.agile.grenoble.questions.ConfigurationType target = null;
-            target = (org.agile.grenoble.questions.ConfigurationType)get_store().find_element_user(CONFIGURATION$0, 0);
-            if (target == null)
-            {
-                return null;
-            }
-            return target;
-        }
-    }
-    
-    /**
-     * True if has "configuration" element
-     */
-    public boolean isSetConfiguration()
-    {
-        synchronized (monitor())
-        {
-            check_orphaned();
-            return get_store().count_elements(CONFIGURATION$0) != 0;
-        }
-    }
-    
-    /**
-     * Sets the "configuration" element
-     */
-    public void setConfiguration(org.agile.grenoble.questions.ConfigurationType configuration)
-    {
-        generatedSetterHelperImpl(configuration, CONFIGURATION$0, 0, org.apache.xmlbeans.impl.values.XmlObjectBase.KIND_SETTERHELPER_SINGLETON);
-    }
-    
-    /**
-     * Appends and returns a new empty "configuration" element
-     */
-    public org.agile.grenoble.questions.ConfigurationType addNewConfiguration()
-    {
-        synchronized (monitor())
-        {
-            check_orphaned();
-            org.agile.grenoble.questions.ConfigurationType target = null;
-            target = (org.agile.grenoble.questions.ConfigurationType)get_store().add_element_user(CONFIGURATION$0);
-            return target;
-        }
-    }
-    
-    /**
-     * Unsets the "configuration" element
-     */
-    public void unsetConfiguration()
-    {
-        synchronized (monitor())
-        {
-            check_orphaned();
-            get_store().remove_element(CONFIGURATION$0, 0);
-        }
-    }
     
     /**
      * Gets array of all "answer" elements
@@ -99,7 +33,7 @@ public class AnswersTypeImpl extends org.apache.xmlbeans.impl.values.XmlComplexC
         {
             check_orphaned();
             java.util.List targetList = new java.util.ArrayList();
-            get_store().find_all_element_users(ANSWER$2, targetList);
+            get_store().find_all_element_users(ANSWER$0, targetList);
             org.agile.grenoble.questions.AnswerType[] result = new org.agile.grenoble.questions.AnswerType[targetList.size()];
             targetList.toArray(result);
             return result;
@@ -115,7 +49,7 @@ public class AnswersTypeImpl extends org.apache.xmlbeans.impl.values.XmlComplexC
         {
             check_orphaned();
             org.agile.grenoble.questions.AnswerType target = null;
-            target = (org.agile.grenoble.questions.AnswerType)get_store().find_element_user(ANSWER$2, i);
+            target = (org.agile.grenoble.questions.AnswerType)get_store().find_element_user(ANSWER$0, i);
             if (target == null)
             {
                 throw new IndexOutOfBoundsException();
@@ -132,7 +66,7 @@ public class AnswersTypeImpl extends org.apache.xmlbeans.impl.values.XmlComplexC
         synchronized (monitor())
         {
             check_orphaned();
-            return get_store().count_elements(ANSWER$2);
+            return get_store().count_elements(ANSWER$0);
         }
     }
     
@@ -142,7 +76,7 @@ public class AnswersTypeImpl extends org.apache.xmlbeans.impl.values.XmlComplexC
     public void setAnswerArray(org.agile.grenoble.questions.AnswerType[] answerArray)
     {
         check_orphaned();
-        arraySetterHelper(answerArray, ANSWER$2);
+        arraySetterHelper(answerArray, ANSWER$0);
     }
     
     /**
@@ -154,7 +88,7 @@ public class AnswersTypeImpl extends org.apache.xmlbeans.impl.values.XmlComplexC
         {
             check_orphaned();
             org.agile.grenoble.questions.AnswerType target = null;
-            target = (org.agile.grenoble.questions.AnswerType)get_store().find_element_user(ANSWER$2, i);
+            target = (org.agile.grenoble.questions.AnswerType)get_store().find_element_user(ANSWER$0, i);
             if (target == null)
             {
                 throw new IndexOutOfBoundsException();
@@ -172,7 +106,7 @@ public class AnswersTypeImpl extends org.apache.xmlbeans.impl.values.XmlComplexC
         {
             check_orphaned();
             org.agile.grenoble.questions.AnswerType target = null;
-            target = (org.agile.grenoble.questions.AnswerType)get_store().insert_element_user(ANSWER$2, i);
+            target = (org.agile.grenoble.questions.AnswerType)get_store().insert_element_user(ANSWER$0, i);
             return target;
         }
     }
@@ -186,7 +120,7 @@ public class AnswersTypeImpl extends org.apache.xmlbeans.impl.values.XmlComplexC
         {
             check_orphaned();
             org.agile.grenoble.questions.AnswerType target = null;
-            target = (org.agile.grenoble.questions.AnswerType)get_store().add_element_user(ANSWER$2);
+            target = (org.agile.grenoble.questions.AnswerType)get_store().add_element_user(ANSWER$0);
             return target;
         }
     }
@@ -199,7 +133,7 @@ public class AnswersTypeImpl extends org.apache.xmlbeans.impl.values.XmlComplexC
         synchronized (monitor())
         {
             check_orphaned();
-            get_store().remove_element(ANSWER$2, i);
+            get_store().remove_element(ANSWER$0, i);
         }
     }
 }

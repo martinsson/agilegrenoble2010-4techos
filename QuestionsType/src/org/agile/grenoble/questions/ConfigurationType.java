@@ -16,7 +16,7 @@ package org.agile.grenoble.questions;
 public interface ConfigurationType extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(ConfigurationType.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s32A2924D89A49183F5DC8C9EA3267D67").resolveHandle("configurationtypee0fbtype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(ConfigurationType.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sE5824B5D8561689F60EFBB22B530B038").resolveHandle("configurationtypee0fbtype");
     
     /**
      * Gets the "type" element
@@ -76,16 +76,18 @@ public interface ConfigurationType extends org.apache.xmlbeans.XmlObject
     public interface Type extends org.apache.xmlbeans.XmlString
     {
         public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Type.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s32A2924D89A49183F5DC8C9EA3267D67").resolveHandle("typef2d1elemtype");
+            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Type.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sE5824B5D8561689F60EFBB22B530B038").resolveHandle("typef2d1elemtype");
         
         org.apache.xmlbeans.StringEnumAbstractBase enumValue();
         void set(org.apache.xmlbeans.StringEnumAbstractBase e);
         
         static final Enum SINGLE = Enum.forString("single");
         static final Enum MULTIPLE = Enum.forString("multiple");
+        static final Enum COMPLEXE = Enum.forString("complexe");
         
         static final int INT_SINGLE = Enum.INT_SINGLE;
         static final int INT_MULTIPLE = Enum.INT_MULTIPLE;
+        static final int INT_COMPLEXE = Enum.INT_COMPLEXE;
         
         /**
          * Enumeration value class for org.agile.grenoble.questions.ConfigurationType$Type.
@@ -120,6 +122,7 @@ public interface ConfigurationType extends org.apache.xmlbeans.XmlObject
             
             static final int INT_SINGLE = 1;
             static final int INT_MULTIPLE = 2;
+            static final int INT_COMPLEXE = 3;
             
             public static final org.apache.xmlbeans.StringEnumAbstractBase.Table table =
                 new org.apache.xmlbeans.StringEnumAbstractBase.Table
@@ -128,6 +131,7 @@ public interface ConfigurationType extends org.apache.xmlbeans.XmlObject
                 {
                     new Enum("single", INT_SINGLE),
                     new Enum("multiple", INT_MULTIPLE),
+                    new Enum("complexe", INT_COMPLEXE),
                 }
             );
             private static final long serialVersionUID = 1L;

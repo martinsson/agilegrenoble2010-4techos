@@ -8,6 +8,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="single"/>
             <xs:enumeration value="multiple"/>
+            <xs:enumeration value="complexe"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -18,19 +19,27 @@
     <xs:sequence>
       <xs:element type="xs:string" name="label"/>
       <xs:element type="xs:string" name="point" minOccurs="0"/>
+      <xs:element name="selected" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="answersType">
     <xs:sequence>
-      <xs:element type="ques:configurationType" name="configuration" minOccurs="0" xmlns:ques="http://grenoble.agile.org/questions"/>
       <xs:element type="ques:answerType" name="answer" maxOccurs="unbounded" minOccurs="0" xmlns:ques="http://grenoble.agile.org/questions"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="QuestionType">
     <xs:sequence>
       <xs:element type="xs:string" name="label"/>
-      <xs:element type="ques:configurationType" name="configuration" minOccurs="0" xmlns:ques="http://grenoble.agile.org/questions"/>
-      <xs:element type="ques:answersType" name="answers" xmlns:ques="http://grenoble.agile.org/questions"/>
+      <xs:element type="ques:configurationType" name="configuration" xmlns:ques="http://grenoble.agile.org/questions"/>
+      <xs:element type="ques:answersType" name="answers" minOccurs="0" xmlns:ques="http://grenoble.agile.org/questions"/>
+      <xs:element type="ques:QuestionType" name="Question" maxOccurs="unbounded" minOccurs="0" xmlns:ques="http://grenoble.agile.org/questions"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="QuestionsType">

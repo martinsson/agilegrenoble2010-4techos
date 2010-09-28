@@ -9,26 +9,32 @@
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>No Iteration</org.agile.grenoble:label>
 				<org.agile.grenoble:point>0</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>true</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Iteration &gt; 6 weeks </org.agile.grenoble:label>
 				<org.agile.grenoble:point>1</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Iteration duration is variable and lt; 6 weeks</org.agile.grenoble:label>
 				<org.agile.grenoble:point>2</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Fixed Iteration of 6 weeks </org.agile.grenoble:label>
 				<org.agile.grenoble:point>3</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Fixed Iteration length of 5 weeks</org.agile.grenoble:label>
 				<org.agile.grenoble:point>4</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Fixed iteration length of 4 weeks or less</org.agile.grenoble:label>
 				<org.agile.grenoble:point>10</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
         </org.agile.grenoble:answers>
     </org.agile.grenoble:Question>
@@ -43,26 +49,32 @@
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>No dedicated QA</org.agile.grenoble:label>
 				<org.agile.grenoble:point>0</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Unit tested</org.agile.grenoble:label>
 				<org.agile.grenoble:point>1</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Feature Tested</org.agile.grenoble:label>
 				<org.agile.grenoble:point>5</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Features tested as soon as completed</org.agile.grenoble:label>
 				<org.agile.grenoble:point>7</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Software passes acceptance testing</org.agile.grenoble:label>
 				<org.agile.grenoble:point>8</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Software is deployed</org.agile.grenoble:label>
 				<org.agile.grenoble:point>10</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
         </org.agile.grenoble:answers>
     </org.agile.grenoble:Question>
@@ -76,30 +88,37 @@
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>No requirements</org.agile.grenoble:label>
 				<org.agile.grenoble:point>0</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Big requirements documents</org.agile.grenoble:label>
 				<org.agile.grenoble:point>1</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Poor user stories</org.agile.grenoble:label>
 				<org.agile.grenoble:point>4</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Good requirements</org.agile.grenoble:label>
 				<org.agile.grenoble:point>5</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Good user stories</org.agile.grenoble:label>
 				<org.agile.grenoble:point>7</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Juste enough, just in time specifications</org.agile.grenoble:label>
 				<org.agile.grenoble:point>8</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Good user stories tied to specification as needed</org.agile.grenoble:label>
 				<org.agile.grenoble:point>10</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
         </org.agile.grenoble:answers>
 	</org.agile.grenoble:Question>
@@ -113,30 +132,37 @@
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>No Product Owner</org.agile.grenoble:label>
 				<org.agile.grenoble:point>0</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Product owner who doesn't understand scrum</org.agile.grenoble:label>
 				<org.agile.grenoble:point>1</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Product owner who disrupts team</org.agile.grenoble:label>
 				<org.agile.grenoble:point>2</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Product owner not involved with team</org.agile.grenoble:label>
 				<org.agile.grenoble:point>2</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Product owner with clear product backlog estimated by team before sprint planning meeting(READY)</org.agile.grenoble:label>
 				<org.agile.grenoble:point>5</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Product Owner with release roadmap with dates based on team velocity</org.agile.grenoble:label>
 				<org.agile.grenoble:point>8</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Product owner who motivates team</org.agile.grenoble:label>
 				<org.agile.grenoble:point>10</org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
         </org.agile.grenoble:answers>
 	</org.agile.grenoble:Question>   
@@ -150,30 +176,39 @@
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label></org.agile.grenoble:label>
 				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label></org.agile.grenoble:label>
 				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label></org.agile.grenoble:label>
 				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label></org.agile.grenoble:label>
 				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label></org.agile.grenoble:label>
 				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label></org.agile.grenoble:label>
 				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
         </org.agile.grenoble:answers>
     </org.agile.grenoble:Question>
 	
+
+
+
     <org.agile.grenoble:Question>
 		<org.agile.grenoble:label></org.agile.grenoble:label>
 		<org.agile.grenoble:configuration>
@@ -183,26 +218,32 @@
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label></org.agile.grenoble:label>
 				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label></org.agile.grenoble:label>
 				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label></org.agile.grenoble:label>
 				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label></org.agile.grenoble:label>
 				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label></org.agile.grenoble:label>
 				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label></org.agile.grenoble:label>
 				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
         </org.agile.grenoble:answers>
     </org.agile.grenoble:Question>
@@ -220,51 +261,58 @@
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>2nd answers</org.agile.grenoble:label>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Luc Power 3</org.agile.grenoble:label>
+				<org.agile.grenoble:selected>true</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>2nd answers</org.agile.grenoble:label>
+				<org.agile.grenoble:selected>true</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Luc Power 5</org.agile.grenoble:label>
+				<org.agile.grenoble:selected>true</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
         </org.agile.grenoble:answers>
     </org.agile.grenoble:Question>
 	
-
 	<org.agile.grenoble:Question>
-		<org.agile.grenoble:label></org.agile.grenoble:label>
+		<org.agile.grenoble:label>This is my 4rd question (a complex one) </org.agile.grenoble:label>
 		<org.agile.grenoble:configuration>
-			<org.agile.grenoble:type>single</org.agile.grenoble:type>
+				<org.agile.grenoble:type>complexe</org.agile.grenoble:type>
         </org.agile.grenoble:configuration>
-		<org.agile.grenoble:answers>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-            </org.agile.grenoble:answer>
-        </org.agile.grenoble:answers>
+        
+		<org.agile.grenoble:Question>
+			<org.agile.grenoble:label>This is my 3rd question</org.agile.grenoble:label>
+			<org.agile.grenoble:configuration>
+				<org.agile.grenoble:type>multiple</org.agile.grenoble:type>
+				<org.agile.grenoble:number>3</org.agile.grenoble:number>
+    	    </org.agile.grenoble:configuration>
+			<org.agile.grenoble:answers>
+				<org.agile.grenoble:answer>
+					<org.agile.grenoble:label>Luc power</org.agile.grenoble:label>
+					<org.agile.grenoble:point></org.agile.grenoble:point>
+					<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
+	            </org.agile.grenoble:answer>
+        	</org.agile.grenoble:answers>
+    	</org.agile.grenoble:Question>
+    
+    	<org.agile.grenoble:Question>
+			<org.agile.grenoble:label></org.agile.grenoble:label>
+			<org.agile.grenoble:configuration>
+				<org.agile.grenoble:type>single</org.agile.grenoble:type>
+        	</org.agile.grenoble:configuration>
+			<org.agile.grenoble:answers>
+				<org.agile.grenoble:answer>
+					<org.agile.grenoble:label></org.agile.grenoble:label>
+					<org.agile.grenoble:point></org.agile.grenoble:point>
+					<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
+	            </org.agile.grenoble:answer>
+		    </org.agile.grenoble:answers>
+    	</org.agile.grenoble:Question>
+    	
     </org.agile.grenoble:Question>
 
 	
