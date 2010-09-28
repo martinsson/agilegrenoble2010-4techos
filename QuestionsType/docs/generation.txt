@@ -1,5 +1,5 @@
 #generate xsd from XML
-e:\build\xmlbeans-2.5.0\bin\inst2xsd questions.xml -enumerations never
-
+e:\build\xmlbeans-2.5.0\bin\inst2xsd questions.xml -enumerations 3
+(all the choice type,  with less than 3 possibilities, will generate an enumerated type)
 #Generate classes and jar file from xsd
 e:\build\xmlbeans-2.5.0\bin\scomp  -src .  questions.xsd  -compiler e:\java\jdk1.6.0_21\bin\javac.exe
