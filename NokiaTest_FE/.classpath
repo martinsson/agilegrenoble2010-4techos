@@ -8,7 +8,7 @@
 	<classpathentry kind="lib" path="E:/build/xmlbeans-2.5.0/lib/xbean.jar"/>
 	<classpathentry kind="lib" path="E:/build/xmlbeans-2.5.0/lib/xbean_xpath.jar"/>
 	<classpathentry kind="lib" path="E:/build/xmlbeans-2.5.0/lib/xmlbeans-qname.jar"/>
-	<classpathentry kind="lib" path="E:/build/workspace/QuestionsType/src/xmltype-1.0.0.jar"/>
 	<classpathentry kind="lib" path="E:/tools/mysql-connector-java-5.0.8/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionsType/src/xmltype-1.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
