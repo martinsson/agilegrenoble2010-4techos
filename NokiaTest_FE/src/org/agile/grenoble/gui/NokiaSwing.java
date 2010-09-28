@@ -14,6 +14,7 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
+import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -24,33 +25,71 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+import org.agile.grenoble.questions.AnswerType;
 import org.agile.grenoble.questions.AnswersType;
 import org.agile.grenoble.questions.ConfigurationType;
 import org.agile.grenoble.questions.QuestionType;
 import org.agile.grenoble.questions.QuestionsType;
 
-class myCheckGroup implements ActionListener {
+class myActionLogicListener implements ActionListener {
 	
-	int iMaxSelected = -1 ;
-	int iNbCheckedItem = 0 ;
-	Vector<JCheckBox> v = new Vector<JCheckBox>();  
-	myCheckGroup(int maxSelected) {
-		iMaxSelected = maxSelected ; 
-	}
-	
-	
-	public void add(JCheckBox aBox) {
-	 // super.add(aBox);
-	  //register to click event :)
-	  aBox.addActionListener(this);
-	  v.add(aBox);
+	AnswerType at = null; 
+	public myActionLogicListener(AnswerType pAt) {
+		at = pAt ;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		//select or not select ? 
+		AbstractButton ab = (AbstractButton) arg0.getSource();
+		if (ab.isSelected()== true) {
+			at.setSelected(AnswerType.Selected.TRUE);				
+		} else{
+			at.setSelected(AnswerType.Selected.FALSE);
+		}
+		System.out.println("Yeh, my model should be updated ") ;
+	}
+
+}
+
+
+/*
+ * myCheckGroup handle the logic of a set of checkbox,
+ * with a maximun number of selected elements
+ */
+class myCheckGroup implements ActionListener {
+	
+	int iMaxSelected = -1 ;
+	int iNbCheckedItem = 0 ;
+	Vector<JCheckBox> v = new Vector<JCheckBox>();
+	
+	/*
+	 * maximun of element selectable in this group
+	 */
+	myCheckGroup(int maxSelected) {
+		iMaxSelected = maxSelected ; 
+	}
+	
+	/* 
+	 * add a checkbox to this list of elements
+	 */
+	public void add(JCheckBox aBox) {
+	  aBox.addActionListener(this);
+	  v.add(aBox);
+	}
+
+	/*
+	 * when clicking on a checkbox, checks if max is reached. And forbid the selection 
+	 * if max is reached. 
+	 * note : allow unselection of elements
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		//select or not select ? 
 		JCheckBox cb = (JCheckBox) arg0.getSource();
-		if (cb.isSelected()) {
+		if (cb.isSelected())
+		{
 			iNbCheckedItem++;
 			if (iNbCheckedItem > iMaxSelected) {
 				for ( Enumeration<JCheckBox> e = v.elements(); e.hasMoreElements(); ) {
@@ -67,7 +106,7 @@ class myCheckGroup implements ActionListener {
 			} else {
 				//nothing
 			}
-		} else {
+		} else{
 			//unselect 
 			iNbCheckedItem--;
 		}
@@ -76,6 +115,9 @@ class myCheckGroup implements ActionListener {
 	
 }
 
+/*
+ * main graphical class
+ * */
 
 public class NokiaSwing  extends JFrame {
 	
@@ -175,12 +217,16 @@ public class NokiaSwing  extends JFrame {
 	 * */ 
 	private JPanel generateQuestionPanel(QuestionType pQuestion) throws Exception {
 		JPanel questionContainer = generateQuestionArea();
-		questionContainer.setLayout(new GridLayout(pQuestion.getAnswers().getAnswerArray().length+1, 1));
-		//TODO add question mark image 
-		Label questionText = new Label(pQuestion.getLabel());
-		questionContainer.add(questionText);
+		if (pQuestion.getConfiguration().getType() != ConfigurationType.Type.COMPLEXE) {
+			questionContainer.setLayout(new GridLayout(pQuestion.getAnswers().getAnswerArray().length+1, 1));
+		//	TODO add question mark image 
+			Label questionText = new Label(pQuestion.getLabel());
+			questionContainer.add(questionText);
 		
-		addAnswers(pQuestion.getConfiguration(), pQuestion.getAnswers(), questionContainer);
+			addAnswers(pQuestion.getConfiguration(), pQuestion.getAnswers(), questionContainer);
+		} else {
+			//TODO : add display for complex question
+		}
 
 		return questionContainer;
 	}
@@ -199,11 +245,6 @@ public class NokiaSwing  extends JFrame {
 			throw new Exception("UNKNOWN question type :" + conf.getType());
 		}
 	}
-
-	private void addComplexAnswers(AnswersType pAnswers,JPanel questionContainer) {
-		// TODO Auto-generated method stub
-	}
-
 	
 	private void addCheckAnswers(ConfigurationType conf,AnswersType pAnswers, JPanel questionContainer) {
 		myCheckGroup buttonGroup = new myCheckGroup(conf.getNumber()) ;
@@ -212,6 +253,8 @@ public class NokiaSwing  extends JFrame {
 		for (int i = 0; i< pAnswers.getAnswerArray().length; i++){
 			String answer =  pAnswers.getAnswerArray()[i].getLabel();
 			JCheckBox answerText = new JCheckBox(answer);
+			answerText.addActionListener(new myActionLogicListener(pAnswers.getAnswerArray()[i]));
+			//listen to click / unclick 
 			questionContainer.add(answerText);
 			buttonGroup.add(answerText);
 		}
@@ -224,6 +267,8 @@ public class NokiaSwing  extends JFrame {
 			String answer =  pAnswers.getAnswerArray()[i].getLabel();
 			JRadioButton answerText = new JRadioButton(answer);
 			questionContainer.add(answerText);
+			//listen to click / unclick
+			answerText.addActionListener(new myActionLogicListener(pAnswers.getAnswerArray()[i]));
 			buttonGroup.add(answerText);
 		}
 		//questionContainer.add(menuItem);
@@ -257,8 +302,7 @@ public class NokiaSwing  extends JFrame {
 	}
 
 	public void registerOnClickNavBarEvent(NokiaControler nokiaControler) {
-		nextOrTerminate.addActionListener(nokiaControler);
-		
+		nextOrTerminate.addActionListener(nokiaControler);	
 	}
 
 	public void nextQuestion(int currentQuestionIndex,boolean isLast) {

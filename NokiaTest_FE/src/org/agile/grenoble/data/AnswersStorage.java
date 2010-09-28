@@ -24,6 +24,8 @@ public class AnswersStorage {
 	}
 	
 	
+	
+	
 	private Connection createConnection() {
 		Connection conn = null; 
 		try {
@@ -89,7 +91,6 @@ public class AnswersStorage {
 		}
 		stat.close();
 
-		
 		
 	}
 

@@ -11,9 +11,7 @@ import org.agile.grenoble.questions.QuestionsDocument;
 import org.agile.grenoble.questions.QuestionsType;
 
 	public class QuestionsReader
-	{
-		
-	
+	{		
 	    public static QuestionsType readItems(String filename) throws Exception
 	    {
 	    	//File po = new File("E:\\build\\workspace\\NokiaTest_FE\\src\\org\\agile\\grenoble\\data\\xml\\questions.xml");
@@ -44,20 +42,39 @@ import org.agile.grenoble.questions.QuestionsType;
 	        QuestionsType qt = readItems(filename);
 	        
 	        QuestionType[] questions = qt.getQuestionArray();
-	        for (int i =0; i < questions.length; i++) {
+	        print(questions,1);
+	}
+
+		private static void print(QuestionType[] questions, int depth) {
+			for (int i =0; i < questions.length; i++) {
 	        	QuestionType q = questions[i];
-	        	System.out.println ("----" + q.getLabel());
+	        	for (int k=0; k < depth; k++) {
+	        		System.out.print ("----" );
+	        	}
+	        	System.out.println (q.getLabel());
 	        	AnswersType at = q.getAnswers();
 	        	ConfigurationType ct = q.getConfiguration();
 	        	if (ct != null ) {
+	        		for (int k=0; k < depth; k++) {
+		        		System.out.print ("    " );
+		        	}
 	        		System.out.println("Configuration = " + ct.getType() + "/" + ct.getNumber());
 	        	}
-	        	AnswerType[] answers = at.getAnswerArray();
-	        	for (int j=0; j<answers.length; j++) {
-	        		AnswerType a = answers[j];
-	        		System.out.println("      + " + a.getLabel() + "-> " + a.getPoint() +"points ");
-	        	}	        	
+	        	if (at != null) {
+	        		AnswerType[] answers = at.getAnswerArray();
+	        		for (int j=0; j<answers.length; j++) {
+	        			AnswerType a = answers[j];
+	        			for (int k=0; k < depth; k++) {
+			        		System.out.print ("    " );
+			        	}
+	        			System.out.println("+ " + a.getLabel() + "-> " + a.getPoint() +"points " + "/ selected :" + a.getSelected());
+	        		}
+	        	} else {
+	        		QuestionType[] subQuestions = q.getQuestionArray();
+	        		print(subQuestions, depth+1);
+	        		
+	        	}
 	        }
-	}
+		}
 
 }
