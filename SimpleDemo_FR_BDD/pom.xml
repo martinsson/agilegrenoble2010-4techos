@@ -1,0 +1,107 @@
+﻿<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.agile-grenoble.nokiatest</groupId>
+  <artifactId>bdd</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>Atelier de spécification exécutable</name>
+  <url>http://agile-grenoble.org/</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <cuke4duke.version>0.3.2</cuke4duke.version>
+    <http.proxy>http://proxy:8080</http.proxy>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>cukes</id>
+      <url>http://cukes.info/maven</url>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>cukes</id>
+      <url>http://cukes.info/maven</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+
+  <dependencies>
+    <dependency>
+      <groupId>cuke4duke</groupId>
+      <artifactId>cuke4duke</artifactId>
+      <version>${cuke4duke.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.picocontainer</groupId>
+      <artifactId>picocontainer</artifactId>
+      <version>2.10.2</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  
+  <build>
+  
+          <!--START:compiler-->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.0.2</version>
+                    <configuration>
+                        <encoding>UTF-8</encoding>
+                        <source>1.5</source>
+                        <target>1.5</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <!--END:compiler-->
+
+  
+    <plugins>
+      <plugin>
+        <groupId>cuke4duke</groupId>
+        <artifactId>cuke4duke-maven-plugin</artifactId>
+        <version>${cuke4duke.version}</version>
+        <configuration>
+          <jvmArgs>
+            <jvmArg>
+              -Dcuke4duke.objectFactory=cuke4duke.internal.jvmclass.PicoFactory
+            </jvmArg>
+			<jvmArg>-Dfile.encoding=UTF-8</jvmArg>
+          </jvmArgs>
+          <cucumberArgs>
+            <cucumberArg>${basedir}/src/test/java</cucumberArg>
+          </cucumberArgs>         
+          <gems>
+            <gem>install cuke4duke --version ${cuke4duke.version} --http-proxy ${http.proxy}</gem>
+          </gems>
+        </configuration>
+        <executions>
+          <execution>
+            <id>run-features</id>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>cucumber</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
