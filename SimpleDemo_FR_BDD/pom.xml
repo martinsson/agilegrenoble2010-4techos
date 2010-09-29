@@ -53,25 +53,6 @@
   </dependencies>
   
   <build>
-  
-          <!--START:compiler-->
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>2.0.2</version>
-                    <configuration>
-                        <encoding>UTF-8</encoding>
-                        <source>1.5</source>
-                        <target>1.5</target>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-        <!--END:compiler-->
-
-  
     <plugins>
       <plugin>
         <groupId>cuke4duke</groupId>
@@ -86,6 +67,7 @@
           </jvmArgs>
           <cucumberArgs>
             <cucumberArg>${basedir}/src/test/java</cucumberArg>
+            <cucumberArg>${basedir}/target/test-classes</cucumberArg>
           </cucumberArgs>         
           <gems>
             <gem>install cuke4duke --version ${cuke4duke.version} --http-proxy ${http.proxy}</gem>
@@ -100,6 +82,17 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <encoding>UTF-8</encoding>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
       </plugin>
     </plugins>
   </build>
