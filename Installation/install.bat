@@ -37,4 +37,14 @@ rem ***************************************************************
 rem e:\tools\wget\bin\wget.exe http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.0.8.zip/from/http://artfiles.org/mysql/
 rem unzip mysql-connector-java-5.0.8.zip
 
+rem ***************************************************************
+rem INSTALLATION Log4J , sqqldb
+rem ***************************************************************
+rem e:\tools\wget\bin\wget.exe http://sourceforge.net/projects/hsqldb/files/hsqldb/hsqldb_2_0/hsqldb-2.0.0.zip/download
+rem e:\tools\wget\bin\wget.exe http://mir2.ovh.net/ftp.apache.org/dist//logging/log4j/1.2.16/apache-log4j-1.2.16.zip
+
+
+
+
+
 
