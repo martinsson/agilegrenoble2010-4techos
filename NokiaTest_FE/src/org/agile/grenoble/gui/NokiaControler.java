@@ -2,7 +2,9 @@ package org.agile.grenoble.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
+import org.agile.grenoble.data.AnswersStorage;
 import org.agile.grenoble.questions.QuestionsType;
 /*
  * MVC model, the controler will control the gui, and send proper information 
@@ -13,7 +15,11 @@ public class NokiaControler implements  ActionListener{
 
 	/* constructor */
 	public NokiaControler() {
+		
 	}
+	
+	//the storage engine 
+	AnswersStorage storage = null ;
 	
 	//the list of questions
 	QuestionsType iQuestions = null;
@@ -23,6 +29,11 @@ public class NokiaControler implements  ActionListener{
 	
 	//the current question (will allow future back button too)
 	int currentQuestionIndex = -1 ;
+	
+	/* set the storage engine on the controler */
+	public void setStorage(AnswersStorage pStorage) {
+		storage = pStorage;
+	}
 	
 	/* set the  questions list, on the controller*/
 	public void setQuestions(QuestionsType qt) {
@@ -60,6 +71,12 @@ public class NokiaControler implements  ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		if (currentQuestionIndex == iQuestions.sizeOfQuestionArray() -1 ) {
 			iNokiaSwing.TerminateTest();
+			try {
+				storage.storeAnswers(iQuestions, 1);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} else {
 			currentQuestionIndex++;
 			boolean isLast = ( currentQuestionIndex == iQuestions.sizeOfQuestionArray()-1); 

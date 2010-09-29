@@ -22,6 +22,7 @@ import org.agile.grenoble.questions.QuestionsType;
 	        QuestionsType qt = qsDoc.getQuestions();
 	        return qt ; 
 	    }
+	    
 	    	
 	    public static void printItems(String filename) throws Exception
 	    {

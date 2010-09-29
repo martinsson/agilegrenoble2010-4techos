@@ -51,6 +51,7 @@ class myActionLogicListener implements ActionListener, ChangeListener {
 		}
 		//System.out.println("Yeh, a action is performed , my model should be updated :"  +at.getLabel()) ;
 	}
+	
 
 	@Override
 	public void stateChanged(ChangeEvent arg0) {

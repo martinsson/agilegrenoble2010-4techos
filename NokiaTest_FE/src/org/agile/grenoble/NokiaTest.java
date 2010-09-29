@@ -46,6 +46,7 @@ public class NokiaTest {
 			storage.initializeDB(questions);
 			
 			Thread.currentThread().sleep(500);
+			nc.setStorage(storage);
 			nc.startQuestions();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

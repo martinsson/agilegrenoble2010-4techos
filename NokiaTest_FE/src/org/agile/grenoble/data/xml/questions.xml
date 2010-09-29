@@ -9,7 +9,7 @@
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>No Iteration</org.agile.grenoble:label>
 				<org.agile.grenoble:point>0</org.agile.grenoble:point>
-				<org.agile.grenoble:selected>true</org.agile.grenoble:selected>
+				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
 				<org.agile.grenoble:label>Iteration &gt; 6 weeks </org.agile.grenoble:label>
