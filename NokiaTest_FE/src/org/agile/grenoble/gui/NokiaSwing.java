@@ -24,6 +24,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import org.agile.grenoble.questions.AnswerType;
 import org.agile.grenoble.questions.AnswersType;
@@ -31,7 +33,7 @@ import org.agile.grenoble.questions.ConfigurationType;
 import org.agile.grenoble.questions.QuestionType;
 import org.agile.grenoble.questions.QuestionsType;
 
-class myActionLogicListener implements ActionListener {
+class myActionLogicListener implements ActionListener, ChangeListener {
 	
 	AnswerType at = null; 
 	public myActionLogicListener(AnswerType pAt) {
@@ -47,7 +49,20 @@ class myActionLogicListener implements ActionListener {
 		} else{
 			at.setSelected(AnswerType.Selected.FALSE);
 		}
-		System.out.println("Yeh, my model should be updated ") ;
+		System.out.println("Yeh, a action is performed , my model should be updated :"  +at.getLabel()) ;
+	}
+
+	@Override
+	public void stateChanged(ChangeEvent arg0) {
+		//occure too often, seems selected/unselected/highligth/unhighlight
+		//select or not select ? 
+		AbstractButton ab = (AbstractButton) arg0.getSource();
+		if (ab.isSelected()== true) {
+			at.setSelected(AnswerType.Selected.TRUE);				
+		} else{
+			at.setSelected(AnswerType.Selected.FALSE);
+		}
+		System.out.println("Yeh, a state change is detected, my model should be updated :" +at.getLabel() + "/" + at.getSelected()) ;
 	}
 
 }
@@ -106,7 +121,7 @@ class myCheckGroup implements ActionListener {
 			} else {
 				//nothing
 			}
-		} else{
+		} else {
 			//unselect 
 			iNbCheckedItem--;
 		}
@@ -149,7 +164,6 @@ public class NokiaSwing  extends JFrame {
 		//JPanel questionArea = new JPanel();
 		iPanel=  generateQuestionsPanels(pQuestions);
 
-		//TODO add logo and welcome message 
 		welcome = HomePage(); 
 		getContentPane().add(welcome);
 		
@@ -162,13 +176,11 @@ public class NokiaSwing  extends JFrame {
 	
 	private JPanel HomePage() {
 		JPanel hp = new JPanel();
-		//JButton logoAgilent = new JButton("Agilent") ;
-		//JButton logoAgilent = new JButton("Agilent");
+		//TODO make the logo read in a config file
 		JLabel logoAgilent = getImage("E:\\build\\workspace\\NokiaTest_FE\\src\\resources\\images\\agilentlogo-home.gif");
 		JLabel logoKelkoo = getImage("E:\\build\\workspace\\NokiaTest_FE\\src\\resources\\images\\kelkoo.jpg");
 		JLabel logoFT = getImage("E:\\build\\workspace\\NokiaTest_FE\\src\\resources\\images\\orange-labs.jpg");
 		  
-		//hp.add(logoAgilent);
 		hp.add( logoAgilent ) ;
 		hp.add(logoKelkoo);
 		hp.add(logoFT);
@@ -198,6 +210,10 @@ public class NokiaSwing  extends JFrame {
 		return navigationBar ;
 	}
 	
+	
+	/* 
+	 * Took a list of question, and build the panel. There's a panel per question.
+	 * */
 	private JPanel[] generateQuestionsPanels(QuestionsType pQuestions) throws Exception {		
 	   JPanel[] questionsPanels = new JPanel[pQuestions.getQuestionArray().length];
 		
@@ -219,18 +235,28 @@ public class NokiaSwing  extends JFrame {
 		JPanel questionContainer = generateQuestionArea();
 		if (pQuestion.getConfiguration().getType() != ConfigurationType.Type.COMPLEXE) {
 			questionContainer.setLayout(new GridLayout(pQuestion.getAnswers().getAnswerArray().length+1, 1));
-		//	TODO add question mark image 
-			Label questionText = new Label(pQuestion.getLabel());
+	 		Label questionText = new Label(pQuestion.getLabel());
 			questionContainer.add(questionText);
-		
+			JLabel questionMark= getImage("E:\\build\\workspace\\NokiaTest_FE\\src\\resources\\images\\question.jpg");
+		    questionContainer.add(questionMark);
 			addAnswers(pQuestion.getConfiguration(), pQuestion.getAnswers(), questionContainer);
 		} else {
-			//TODO : add display for complex question
-		}
+			//the question if made of several question 
+			   JPanel childrenPanel = null ;
+			   questionContainer.setLayout(new GridLayout(pQuestion.getQuestionArray().length, 1));
+			   for (int i=0; i < pQuestion.getQuestionArray().length; i++) {
+				   childrenPanel = generateQuestionPanel(pQuestion.getQuestionArray()[i]);
+				   questionContainer.add(childrenPanel);
+			   } //end for 
+		} //end if 	
 
 		return questionContainer;
 	}
 
+	/*
+	 *  add answers to the question panel.
+	 * 
+	 */
 	private void addAnswers(ConfigurationType conf, AnswersType pAnswers, JPanel questionContainer) throws Exception {
 		 if (conf == null || conf.getType() == null ) {
 			//don't add anything
@@ -246,20 +272,28 @@ public class NokiaSwing  extends JFrame {
 		}
 	}
 	
+	/* 
+	 * Add check box button look answers
+	 * 
+	 */
 	private void addCheckAnswers(ConfigurationType conf,AnswersType pAnswers, JPanel questionContainer) {
 		myCheckGroup buttonGroup = new myCheckGroup(conf.getNumber()) ;
-		//ButtonGroup buttonGroup = new ButtonGroup() ;
-		//buttonGroup.
+
 		for (int i = 0; i< pAnswers.getAnswerArray().length; i++){
 			String answer =  pAnswers.getAnswerArray()[i].getLabel();
 			JCheckBox answerText = new JCheckBox(answer);
-			answerText.addActionListener(new myActionLogicListener(pAnswers.getAnswerArray()[i]));
 			//listen to click / unclick 
+			answerText.addChangeListener(new myActionLogicListener(pAnswers.getAnswerArray()[i]));
 			questionContainer.add(answerText);
 			buttonGroup.add(answerText);
 		}
 	}
 
+	
+	/* 
+	 * Add radio button look answers
+	 * 
+	 */
 	private void addRadioAnswers(AnswersType pAnswers, JPanel questionContainer) {
 		ButtonGroup buttonGroup = new ButtonGroup() ;
 		
@@ -268,11 +302,9 @@ public class NokiaSwing  extends JFrame {
 			JRadioButton answerText = new JRadioButton(answer);
 			questionContainer.add(answerText);
 			//listen to click / unclick
-			answerText.addActionListener(new myActionLogicListener(pAnswers.getAnswerArray()[i]));
+			answerText.addChangeListener(new myActionLogicListener(pAnswers.getAnswerArray()[i]));
 			buttonGroup.add(answerText);
 		}
-		//questionContainer.add(menuItem);
-		
 	}
 	
 	

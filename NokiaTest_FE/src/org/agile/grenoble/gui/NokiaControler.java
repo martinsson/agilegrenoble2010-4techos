@@ -24,12 +24,12 @@ public class NokiaControler implements  ActionListener{
 	//the current question (will allow future back button too)
 	int currentQuestionIndex = -1 ;
 	
-	/* set the  questions list, on the controler*/
+	/* set the  questions list, on the controller*/
 	public void setQuestions(QuestionsType qt) {
 		iQuestions = qt ; 
 	}
 	
-	/* Set the GUI to the controler */
+	/* Set the GUI to the Controller */
 	public void setNokiaSwing(NokiaSwing ns ) {
 		iNokiaSwing = ns ; 
 	}
