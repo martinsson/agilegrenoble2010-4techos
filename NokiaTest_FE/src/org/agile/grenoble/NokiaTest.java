@@ -33,7 +33,7 @@ public class NokiaTest {
 		QuestionsType questions=null;
 		AnswersStorage storage = new AnswersStorage();
 		try {
-			storage.initializeDB();
+			
 			String filename = "E:\\build\\workspace\\NokiaTest_FE\\src\\org\\agile\\grenoble\\data\\xml\\questions.xml" ;
 			QuestionsReader.printItems(filename);
 			questions = QuestionsReader.readItems(filename);
@@ -43,7 +43,8 @@ public class NokiaTest {
 			NokiaControler nc = new NokiaControler();
 			nc.setNokiaSwing(gui);
 			nc.setQuestions(questions);
-		
+			storage.initializeDB(questions);
+			
 			Thread.currentThread().sleep(500);
 			nc.startQuestions();
 		} catch (Exception e) {
