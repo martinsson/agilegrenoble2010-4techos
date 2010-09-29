@@ -168,151 +168,146 @@
 	</org.agile.grenoble:Question>   
 
 	<org.agile.grenoble:Question>
-		<org.agile.grenoble:label></org.agile.grenoble:label>
+		<org.agile.grenoble:label>Q5: Product BackLog</org.agile.grenoble:label>
 		<org.agile.grenoble:configuration>
 			<org.agile.grenoble:type>single</org.agile.grenoble:type>
         </org.agile.grenoble:configuration>
 		<org.agile.grenoble:answers>
 			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:label>No Product Backlog</org.agile.grenoble:label>
+				<org.agile.grenoble:point>0</org.agile.grenoble:point>
 				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:label>Multiple Product Backlogs</org.agile.grenoble:label>
+				<org.agile.grenoble:point>1</org.agile.grenoble:point>
 				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:label>Single Product Baclog</org.agile.grenoble:label>
+				<org.agile.grenoble:point>3</org.agile.grenoble:point>
 				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:label>Product Backloh clearly specified and prioritized by ROI before Sprint Planning (READY)</org.agile.grenoble:label>
+				<org.agile.grenoble:point>5</org.agile.grenoble:point>
 				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:label>Product Owner has release burndon with release date based on velocity</org.agile.grenoble:label>
+				<org.agile.grenoble:point>7</org.agile.grenoble:point>
 				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:label>Product owner can measure ROI based on real revenue, cost per story point, or other meetrics</org.agile.grenoble:label>
+				<org.agile.grenoble:point>10</org.agile.grenoble:point>
 				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
         </org.agile.grenoble:answers>
     </org.agile.grenoble:Question>
 	
-
-
 
     <org.agile.grenoble:Question>
-		<org.agile.grenoble:label></org.agile.grenoble:label>
+		<org.agile.grenoble:label>Q6 : Estimate </org.agile.grenoble:label>
 		<org.agile.grenoble:configuration>
 			<org.agile.grenoble:type>single</org.agile.grenoble:type>
         </org.agile.grenoble:configuration>
 		<org.agile.grenoble:answers>
 			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:label>Product Backlog not estimated</org.agile.grenoble:label>
+				<org.agile.grenoble:point>0</org.agile.grenoble:point>
 				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:label>Estimates not produced by team</org.agile.grenoble:label>
+				<org.agile.grenoble:point>1</org.agile.grenoble:point>
 				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:label>Estimates not produced by planning poker</org.agile.grenoble:label>
+				<org.agile.grenoble:point>5</org.agile.grenoble:point>
 				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:label>Estimates produced by planning poker by team</org.agile.grenoble:label>
+				<org.agile.grenoble:point>8</org.agile.grenoble:point>
 				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
 			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
-				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label></org.agile.grenoble:label>
-				<org.agile.grenoble:point></org.agile.grenoble:point>
+				<org.agile.grenoble:label>Estimate error &lt; 10 % </org.agile.grenoble:label>
+				<org.agile.grenoble:point>10</org.agile.grenoble:point>
 				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
             </org.agile.grenoble:answer>
         </org.agile.grenoble:answers>
     </org.agile.grenoble:Question>
-	
-		
+
 	<org.agile.grenoble:Question>
-		<org.agile.grenoble:label>This is my 3rd question</org.agile.grenoble:label>
-		<org.agile.grenoble:configuration>
-				<org.agile.grenoble:type>multiple</org.agile.grenoble:type>
-				<org.agile.grenoble:number>3</org.agile.grenoble:number>
-        </org.agile.grenoble:configuration>
-		<org.agile.grenoble:answers>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label>Luc power</org.agile.grenoble:label>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label>2nd answers</org.agile.grenoble:label>
-				<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label>Luc Power 3</org.agile.grenoble:label>
-				<org.agile.grenoble:selected>true</org.agile.grenoble:selected>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label>2nd answers</org.agile.grenoble:label>
-				<org.agile.grenoble:selected>true</org.agile.grenoble:selected>
-            </org.agile.grenoble:answer>
-			<org.agile.grenoble:answer>
-				<org.agile.grenoble:label>Luc Power 5</org.agile.grenoble:label>
-				<org.agile.grenoble:selected>true</org.agile.grenoble:selected>
-            </org.agile.grenoble:answer>
-        </org.agile.grenoble:answers>
-    </org.agile.grenoble:Question>
-	
-	<org.agile.grenoble:Question>
-		<org.agile.grenoble:label>This is my 4rd question (a complex one) </org.agile.grenoble:label>
+		<org.agile.grenoble:label>Q7 : Sprints </org.agile.grenoble:label>
 		<org.agile.grenoble:configuration>
 				<org.agile.grenoble:type>complexe</org.agile.grenoble:type>
         </org.agile.grenoble:configuration>
         
 		<org.agile.grenoble:Question>
-			<org.agile.grenoble:label>This is my 3rd question</org.agile.grenoble:label>
+			<org.agile.grenoble:label>A- Sprint Burndown Chart</org.agile.grenoble:label>
 			<org.agile.grenoble:configuration>
-				<org.agile.grenoble:type>multiple</org.agile.grenoble:type>
-				<org.agile.grenoble:number>3</org.agile.grenoble:number>
+				<org.agile.grenoble:type>single</org.agile.grenoble:type>
     	    </org.agile.grenoble:configuration>
 			<org.agile.grenoble:answers>
 				<org.agile.grenoble:answer>
-					<org.agile.grenoble:label>Luc power</org.agile.grenoble:label>
-					<org.agile.grenoble:point></org.agile.grenoble:point>
+					<org.agile.grenoble:label>No burndown chart</org.agile.grenoble:label>
+					<org.agile.grenoble:point>0</org.agile.grenoble:point>
+					<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
+            	</org.agile.grenoble:answer>
+            	<org.agile.grenoble:answer>
+					<org.agile.grenoble:label>Burndown chart not updated by team</org.agile.grenoble:label>
+					<org.agile.grenoble:point>1</org.agile.grenoble:point>
+					<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
+	            </org.agile.grenoble:answer>
+    	        <org.agile.grenoble:answer>
+					<org.agile.grenoble:label>Burdown Chart in jours/days not accouting for work in progress (partial tasks)</org.agile.grenoble:label>
+					<org.agile.grenoble:point>2</org.agile.grenoble:point>
+					<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
+	            </org.agile.grenoble:answer>
+    	        <org.agile.grenoble:answer>
+					<org.agile.grenoble:label>Burndown chart only burns down when task is done (trackdone pattern)</org.agile.grenoble:label>
+					<org.agile.grenoble:point>4</org.agile.grenoble:point>
+					<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
+	            </org.agile.grenoble:answer>
+    	        <org.agile.grenoble:answer>
+					<org.agile.grenoble:label>Burndown chart only burns down when story is done</org.agile.grenoble:label>
+					<org.agile.grenoble:point>5</org.agile.grenoble:point>
 					<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
 	            </org.agile.grenoble:answer>
         	</org.agile.grenoble:answers>
     	</org.agile.grenoble:Question>
     
     	<org.agile.grenoble:Question>
-			<org.agile.grenoble:label></org.agile.grenoble:label>
+			<org.agile.grenoble:label>B- Velocity</org.agile.grenoble:label>
 			<org.agile.grenoble:configuration>
 				<org.agile.grenoble:type>single</org.agile.grenoble:type>
         	</org.agile.grenoble:configuration>
 			<org.agile.grenoble:answers>
 				<org.agile.grenoble:answer>
-					<org.agile.grenoble:label></org.agile.grenoble:label>
-					<org.agile.grenoble:point></org.agile.grenoble:point>
+					<org.agile.grenoble:label>Team knows velocity</org.agile.grenoble:label>
+					<org.agile.grenoble:point>3</org.agile.grenoble:point>
 					<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
 	            </org.agile.grenoble:answer>
 		    </org.agile.grenoble:answers>
     	</org.agile.grenoble:Question>
-    	
+
+    	<org.agile.grenoble:Question>
+			<org.agile.grenoble:label>Release Plan </org.agile.grenoble:label>
+			<org.agile.grenoble:configuration>
+				<org.agile.grenoble:type>single</org.agile.grenoble:type>
+        	</org.agile.grenoble:configuration>
+			<org.agile.grenoble:answers>
+				<org.agile.grenoble:answer>
+					<org.agile.grenoble:label>Product Owner plan based on known velocity</org.agile.grenoble:label>
+					<org.agile.grenoble:point>2</org.agile.grenoble:point>
+					<org.agile.grenoble:selected>false</org.agile.grenoble:selected>
+	            </org.agile.grenoble:answer>
+		    </org.agile.grenoble:answers>
+    	</org.agile.grenoble:Question>    	
     </org.agile.grenoble:Question>
 
 	

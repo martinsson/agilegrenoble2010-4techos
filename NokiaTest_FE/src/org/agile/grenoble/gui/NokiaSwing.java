@@ -49,7 +49,7 @@ class myActionLogicListener implements ActionListener, ChangeListener {
 		} else{
 			at.setSelected(AnswerType.Selected.FALSE);
 		}
-		System.out.println("Yeh, a action is performed , my model should be updated :"  +at.getLabel()) ;
+		//System.out.println("Yeh, a action is performed , my model should be updated :"  +at.getLabel()) ;
 	}
 
 	@Override
@@ -62,7 +62,7 @@ class myActionLogicListener implements ActionListener, ChangeListener {
 		} else{
 			at.setSelected(AnswerType.Selected.FALSE);
 		}
-		System.out.println("Yeh, a state change is detected, my model should be updated :" +at.getLabel() + "/" + at.getSelected()) ;
+		//System.out.println("Yeh, a state change is detected, my model should be updated :" +at.getLabel() + "/" + at.getSelected()) ;
 	}
 
 }
