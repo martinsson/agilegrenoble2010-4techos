@@ -5,15 +5,14 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.agile4techos.nokiatest</groupId>
-  <artifactId>xmltype</artifactId>
-  <version>1.1.1</version>
+  <artifactId>questionType</artifactId>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
-  
   
    <dependencies>
     <dependency>
       <groupId>org.apache.xmlbeans</groupId>
-      <artifactId>xmlbeans</artifactId>
+      <artifactId>xbeans</artifactId>
       <version>2.5.0</version>
       <type>jar</type>
       <scope>compile</scope>
