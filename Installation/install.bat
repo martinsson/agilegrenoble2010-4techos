@@ -47,25 +47,29 @@ rem ***************************************************************
 rem Installation pom of 3rd party locally to avoid maven fetch
 rem ***************************************************************
 
+set workspaceDir=E:\build\workspace
+
 rem questionType : should be done at compile time ...
-mvn install:install-file -DgroupId=org.agile4techos.nokiatest -DartifactId=questionType -Dversion=1.0.0 -Dpackaging=jar -Dfile=e:\build\workspace\QuestionsType\src\questionType-1.0.0.jar -DpomFile=E:\build\workspace\QuestionsType\pom.xml
+mvn install:install-file -DgroupId=org.agile4techos.nokiatest -DartifactId=questionType -Dversion=1.0.0 -Dpackaging=jar -Dfile=%workspaceDir%\QuestionsType\src\questionType-1.0.0.jar -DpomFile=%workspaceDir%\QuestionsType\pom.xml
 
 rem hsqldb, mysqlconnector, log4j
-mvn install:install-file -DgroupId=org.mysql.connector -DartifactId=mysqlconnector -Dversion=5.0.8 -Dpackaging=jar -Dfile=e:\build\workspace\ThirdParty\mysql-connector-java-5.0.8\mysql-connector-java-5.0.8-bin.jar -DpomFile=E:\build\workspace\ThirdParty\poms\pomMysqlConnector.xml
-mvn install:install-file -DgroupId=org.apache.log4j -DartifactId=log4j -Dversion=1.2.16 -Dpackaging=jar -Dfile=e:\build\workspace\ThirdParty\apache-log4j-1.2.16\log4j-1.2.16.jar -DpomFile=E:\build\workspace\ThirdParty\poms\pomLog4j.xml
-mvn install:install-file -DgroupId=org.hsqldb.db -DartifactId=hsqldb -Dversion=2.0.0 -Dpackaging=jar -Dfile=e:\build\workspace\ThirdParty\hsqldb\lib\hsqldb.jar -DpomFile=E:\build\workspace\ThirdParty\poms\pomHsqldb.xml
-mvn install:install-file -DgroupId=org.hsqldb.db -DartifactId=sqltools -Dversion=2.0.0 -Dpackaging=jar -Dfile=e:\build\workspace\ThirdParty\hsqldb\lib\sqltool.jar -DpomFile=E:\build\workspace\ThirdParty\poms\pomSqlTools.xml
+mvn install:install-file -DgroupId=org.mysql.connector -DartifactId=mysqlconnector -Dversion=5.0.8 -Dpackaging=jar -Dfile=%workspaceDir%\ThirdParty\mysql-connector-java-5.0.8\mysql-connector-java-5.0.8-bin.jar -DpomFile=%workspaceDir%\ThirdParty\poms\pomMysqlConnector.xml
+mvn install:install-file -DgroupId=org.apache.log4j -DartifactId=log4j -Dversion=1.2.16 -Dpackaging=jar -Dfile=%workspaceDir%\ThirdParty\apache-log4j-1.2.16\log4j-1.2.16.jar -DpomFile=%workspaceDir%\ThirdParty\poms\pomLog4j.xml
+mvn install:install-file -DgroupId=org.hsqldb.db -DartifactId=hsqldb -Dversion=2.0.0 -Dpackaging=jar -Dfile=%workspaceDir%\ThirdParty\hsqldb\lib\hsqldb.jar -DpomFile=%workspaceDir%\ThirdParty\poms\pomHsqldb.xml
+mvn install:install-file -DgroupId=org.hsqldb.db -DartifactId=sqltools -Dversion=2.0.0 -Dpackaging=jar -Dfile=%workspaceDir%\ThirdParty\hsqldb\lib\sqltool.jar -DpomFile=%workspaceDir%\ThirdParty\poms\pomSqlTools.xml
 
 
 rem xmlbeans.*
-mvn install:install-file -DgroupId=org.apache.xmlbeans -DartifactId=xbeans -Dversion=2.5.0 -Dpackaging=jar -Dfile=e:\build\workspace\ThirdParty\xmlBeans\lib\xbean.jar -DpomFile=E:\build\workspace\ThirdParty\poms\pomXbeans.xml
-mvn install:install-file -DgroupId=org.apache.xmlbeans -DartifactId=jsr-api -Dversion=2.5.0 -Dpackaging=jar -Dfile=e:\build\workspace\ThirdParty\xmlBeans\lib\jsr173_1.0_api.jar -DpomFile=E:\build\workspace\ThirdParty\poms\pomJsrAPI.xml
-mvn install:install-file -DgroupId=org.apache.xmlbeans -DartifactId=resolver -Dversion=2.5.0 -Dpackaging=jar -Dfile=e:\build\workspace\ThirdParty\xmlBeans\lib\resolver.jar -DpomFile=E:\build\workspace\ThirdParty\poms\pomResolver.xml
-mvn install:install-file -DgroupId=org.apache.xmlbeans -DartifactId=xbeans-xpath -Dversion=2.5.0 -Dpackaging=jar -Dfile=e:\build\workspace\ThirdParty\xmlBeans\lib\xbean_xpath.jar -DpomFile=E:\build\workspace\ThirdParty\poms\pomXbeansXPath.xml
-mvn install:install-file -DgroupId=org.apache.xmlbeans -DartifactId=xbeans-qname -Dversion=2.5.0 -Dpackaging=jar -Dfile=e:\build\workspace\ThirdParty\xmlBeans\lib\xmlbeans-qname.jar -DpomFile=E:\build\workspace\ThirdParty\poms\pomXbeans-qname.xml
-mvn install:install-file -DgroupId=org.apache.xmlbeans -DartifactId=xml-public -Dversion=2.5.0 -Dpackaging=jar -Dfile=e:\build\workspace\ThirdParty\xmlBeans\lib\xmlpublic.jar -DpomFile=E:\build\workspace\ThirdParty\poms\pomXPublic.xml
+mvn install:install-file -DgroupId=org.apache.xmlbeans -DartifactId=xbeans -Dversion=2.5.0 -Dpackaging=jar -Dfile=%workspaceDir%\ThirdParty\xmlBeans\lib\xbean.jar -DpomFile=%workspaceDir%\ThirdParty\poms\pomXbeans.xml
+mvn install:install-file -DgroupId=org.apache.xmlbeans -DartifactId=jsr-api -Dversion=2.5.0 -Dpackaging=jar -Dfile=%workspaceDir%\ThirdParty\xmlBeans\lib\jsr173_1.0_api.jar -DpomFile=%workspaceDir%\ThirdParty\poms\pomJsrAPI.xml
+mvn install:install-file -DgroupId=org.apache.xmlbeans -DartifactId=resolver -Dversion=2.5.0 -Dpackaging=jar -Dfile=%workspaceDir%\ThirdParty\xmlBeans\lib\resolver.jar -DpomFile=%workspaceDir%\ThirdParty\poms\pomResolver.xml
+mvn install:install-file -DgroupId=org.apache.xmlbeans -DartifactId=xbeans-xpath -Dversion=2.5.0 -Dpackaging=jar -Dfile=%workspaceDir%\ThirdParty\xmlBeans\lib\xbean_xpath.jar -DpomFile=%workspaceDir%\ThirdParty\poms\pomXbeansXPath.xml
+mvn install:install-file -DgroupId=org.apache.xmlbeans -DartifactId=xbeans-qname -Dversion=2.5.0 -Dpackaging=jar -Dfile=%workspaceDir%\ThirdParty\xmlBeans\lib\xmlbeans-qname.jar -DpomFile=%workspaceDir%\ThirdParty\poms\pomXbeans-qname.xml
+mvn install:install-file -DgroupId=org.apache.xmlbeans -DartifactId=xml-public -Dversion=2.5.0 -Dpackaging=jar -Dfile=%workspaceDir%\ThirdParty\xmlBeans\lib\xmlpublic.jar -DpomFile=%workspaceDir%\ThirdParty\poms\pomXPublic.xml
 
-
+rem Create a repository with all dependencies to be imported into eclispe 
+mvn  -f %workspaceDir%\NokiaTest_FE\pom.xml dependency:copy-dependencies
+mvn  -f %workspaceDir%\QuestionsType\pom.xml dependency:copy-dependencies
 
 
 
