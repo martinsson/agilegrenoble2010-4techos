@@ -2,11 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="lib" path="E:/build/workspace/ThirdParty/xmlBeans/lib/xmlpublic.jar"/>
-	<classpathentry kind="lib" path="E:/build/workspace/ThirdParty/xmlBeans/lib/jsr173_1.0_api.jar"/>
-	<classpathentry kind="lib" path="E:/build/workspace/ThirdParty/xmlBeans/lib/resolver.jar"/>
-	<classpathentry kind="lib" path="E:/build/workspace/ThirdParty/xmlBeans/lib/xbean.jar"/>
-	<classpathentry kind="lib" path="E:/build/workspace/ThirdParty/xmlBeans/lib/xbean_xpath.jar"/>
-	<classpathentry kind="lib" path="E:/build/workspace/ThirdParty/xmlBeans/lib/xmlbeans-qname.jar"/>
+	<classpathentry kind="lib" path="target/dependency/jsr-api-2.5.0.jar"/>
+	<classpathentry kind="lib" path="target/dependency/resolver-2.5.0.jar"/>
+	<classpathentry kind="lib" path="target/dependency/xbeans-2.5.0.jar"/>
+	<classpathentry kind="lib" path="target/dependency/xbeans-qname-2.5.0.jar"/>
+	<classpathentry kind="lib" path="target/dependency/xbeans-xpath-2.5.0.jar"/>
+	<classpathentry kind="lib" path="target/dependency/xml-public-2.5.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
