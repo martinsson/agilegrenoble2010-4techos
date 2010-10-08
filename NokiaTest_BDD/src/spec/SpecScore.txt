@@ -1,0 +1,100 @@
+			Nokia Test
+http://jeffsutherland.com/nokiatest.pdf
+http://antoine.vernois.net/scrumbut/?page=test&lang=en
+
+Q1 	: How long are your Iterations
+Answers : 
+	No Iteration  						0
+	Iteration > 6 weeks 					1
+	Iteration duration is variable and < 6 weeks		2
+	Fixed Iteration of 6 weeks 				3
+	Fixed Iteration length of 5 weeks			4
+	Fixed iteration length of 4 weeks or less		10
+
+Q2	: Testing within the Sprint
+Answers :
+	No dedicated QA						0
+	Unit tested						1	
+	Feature Tested						5
+	Features tested as soon as completed			7
+	Software passes acceptance testing			8
+	Software is deployed					10
+
+Q3 	: Agile Specification 
+Answers :
+	No requirements						0
+	Big requirements documents				1
+	Poor user stories					4
+	Good requirements					5
+	Good user stories					7
+	Juste enough, just in time specifications		8
+	Good user stories tied to specification as needed	10
+
+
+Q4: Product Owner
+Answers :	
+	No Product Owner					0
+	Product owner who doesn't understand scrum		1
+	Product owner who disrupts team				2
+	Product owner not involved with team			2
+	Product owner with clear product backlog estimated 
+		by team before sprint planning meeting(READY)	5
+	Product Owner with release roadmap with dates based 
+		on team velocity				8
+	Product owner who motivates team			10
+
+Q5	: Product BackLog
+Answers :
+	No Product Backlog					0
+	Multiple Product Backlogs				1
+	Single Product Baclog					3
+	Product Backloh clearly specified and prioritized 
+		by ROI before Sprint Planning (READY)		5
+	Product Owner has release burndon with release date 
+		based on velocity				7
+	Product owner can measure ROI based on real revenue, 
+		cost per story point, or other meetrics		10
+
+Q6 	: Estimate
+Answers :
+	Product Backlog not estimated				0
+	Estimates not produced by team				1
+	Estimates not produced by planning poker		5
+	Estimates produced by planning poker by team		8
+	Estimate error < 10 % 					10
+
+Q7 : Sprint Burndown Chart
+Answers :
+	No burndown chart					0
+	Burndown chart not updated by team			1
+	Burdown Chart in jours/days not accouting for work in 		
+		progress (partial tasks)			2
+	Burndown chart only burns down when task is done 
+	(TrackDone pattern)					4
+	Burndown chart only burns down when story is done	5
+
+Additionnal
+	Add 3 points if team knows velocity
+	Add 2 points if Product Owner release plan based on known velocity
+
+Q8	: Team Disruption
+Answers :
+	Manager or Project Leader disrupts team 		0
+	Product Owner disrupts team 				1
+	Managers, Project Leaders or Team leaders telling 
+		people what to do 				3
+	Have Project Leader and Scrum roles			5
+	No one disrupting team, only Scrum roles 		10
+
+Q9	: Team
+Answers :
+	Tasks assigned to individuals during Sprint Planning 	0
+	Team members do not have any overlap in their
+		area of expertise 				0
+	No emergent leadership - one or more team
+		members designated as a directive authority 	1
+	Team does not have the necessary competency		2
+	Team commits collectively to Sprint goal and backlog 	7
+	Team members collectively fight impediments during 
+		the sprint 					9
+	Team is in hyperproductive state 			10
