@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="lib" path="target/bdd-1.0-SNAPSHOT.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/NokiaTest_FE"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/QuestionsType"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/brorsier/.m2/repository/cuke4duke/cuke4duke/0.3.2/cuke4duke-0.3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/brorsier/.m2/repository/junit/junit/4.8.1/junit-4.8.1.jar"/>
+	<classpathentry kind="output" path="target/test-classes"/>
+</classpath>
