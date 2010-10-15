@@ -34,13 +34,14 @@ import org.agile.grenoble.questions.QuestionType;
 import org.agile.grenoble.questions.QuestionsType;
 
 class myActionLogicListener implements ActionListener, ChangeListener {
+
 	
 	AnswerType at = null; 
 	public myActionLogicListener(AnswerType pAt) {
 		at = pAt ;
 	}
 
-	@Override
+//	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		//select or not select ? 
 		AbstractButton ab = (AbstractButton) arg0.getSource();
@@ -53,7 +54,7 @@ class myActionLogicListener implements ActionListener, ChangeListener {
 	}
 	
 
-	@Override
+//	@Override
 	public void stateChanged(ChangeEvent arg0) {
 		//occure too often, seems selected/unselected/highligth/unhighlight
 		//select or not select ? 
@@ -100,7 +101,7 @@ class myCheckGroup implements ActionListener {
 	 * note : allow unselection of elements
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
-	@Override
+//	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		//select or not select ? 
 		JCheckBox cb = (JCheckBox) arg0.getSource();
@@ -175,16 +176,29 @@ public class NokiaSwing  extends JFrame {
 		repaint();
 	}
 	
+
+	private static final String logoAgilentPath = ClassLoader.getSystemResource("images/agilentlogo-home.gif").getFile();
+	private static final String logoKelkooPath = ClassLoader.getSystemResource("images/kelkoo.jpg").getFile();
+	private static final String logoOrangePath = ClassLoader.getSystemResource("images/orange-labs.jpg").getFile();
+	private static final String logoThalesPath = ClassLoader.getSystemResource("images/THALES.gif").getFile();
+
+//	private static final String logoAgilentPath = "src/resources/images/agilentlogo-home.gif";
+//	private static final String logoKelkooPath = "src/resources/images/kelkoo.jpg";
+//	private static final String logoOrangePath = "src/resources/images/orange-labs.jpg";
+
+	
 	private JPanel HomePage() {
 		JPanel hp = new JPanel();
 		//TODO make the logo read in a config file
-		JLabel logoAgilent = getImage("E:\\build\\workspace\\NokiaTest_FE\\src\\resources\\images\\agilentlogo-home.gif");
-		JLabel logoKelkoo = getImage("E:\\build\\workspace\\NokiaTest_FE\\src\\resources\\images\\kelkoo.jpg");
-		JLabel logoFT = getImage("E:\\build\\workspace\\NokiaTest_FE\\src\\resources\\images\\orange-labs.jpg");
+		JLabel logoAgilent = getImage(logoAgilentPath);
+		JLabel logoKelkoo = getImage(logoKelkooPath);
+		JLabel logoFT = getImage(logoOrangePath);
+		JLabel logoTHALES = getImage(logoThalesPath);
 		  
 		hp.add( logoAgilent ) ;
 		hp.add(logoKelkoo);
 		hp.add(logoFT);
+		hp.add(logoTHALES);
 		return hp; 
 	}
 
@@ -225,7 +239,8 @@ public class NokiaSwing  extends JFrame {
 		return questionsPanels;
 	}
 		
-	
+	private static final String	FILENAME = "src/resources/images/question.JPG";
+
 	/** 
 	 * We return a panel per question, allowing us to display several panel in the same page
 	 * or one panel per page ... 
@@ -238,7 +253,8 @@ public class NokiaSwing  extends JFrame {
 			questionContainer.setLayout(new GridLayout(pQuestion.getAnswers().getAnswerArray().length+1, 1));
 	 		Label questionText = new Label(pQuestion.getLabel());
 			questionContainer.add(questionText);
-			JLabel questionMark= getImage("E:\\build\\workspace\\NokiaTest_FE\\src\\resources\\images\\question.jpg");
+			
+			JLabel questionMark= getImage(FILENAME);
 		    questionContainer.add(questionMark);
 			addAnswers(pQuestion.getConfiguration(), pQuestion.getAnswers(), questionContainer);
 		} else {

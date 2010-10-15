@@ -23,20 +23,23 @@ public class NokiaTest {
 	}
 	
 	
+	private static final String FILENAME = "src/org/agile/grenoble/data/xml/questions.xml" ;
+	
 	/**
 	 * 
 	 * @param argv
 	 */
 	public static void main (String[] argv) {
 		System.out.println("HEllo, welcome to the nokia test");
+
+		ClassLoader.getSystemResource(".");
+		
 		//parse arguments
 		QuestionsType questions=null;
 		AnswersStorage storage = new AnswersStorage();
 		try {
-			
-			String filename = "E:\\build\\workspace\\NokiaTest_FE\\src\\org\\agile\\grenoble\\data\\xml\\questions.xml" ;
-			QuestionsReader.printItems(filename);
-			questions = QuestionsReader.readItems(filename);
+			QuestionsReader.printItems(FILENAME);
+			questions = QuestionsReader.readItems(FILENAME);
 			//call master class
 			NokiaSwing gui = initMainGUI();
 			gui.generateQuestionDisplay(questions);

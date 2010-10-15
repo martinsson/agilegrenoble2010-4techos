@@ -67,7 +67,7 @@ public class NokiaControler implements  ActionListener{
 	 * When clicking on the next, receive an event.
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
-	@Override
+//	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		if (currentQuestionIndex == iQuestions.sizeOfQuestionArray() -1 ) {
 			iNokiaSwing.TerminateTest();
