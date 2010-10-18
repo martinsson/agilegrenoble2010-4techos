@@ -13,7 +13,7 @@ public class UserRegistration {
 	}
 
 	public User createUser() {
-		User user = UserFactory.getUser("LaurentT", iStorage) ;
+		User user = UserFactory.getUser("Laurent_"+System.currentTimeMillis(), iStorage) ;
 		
 		return user;
 	}

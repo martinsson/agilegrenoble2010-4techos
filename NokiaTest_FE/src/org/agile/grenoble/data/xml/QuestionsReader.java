@@ -14,10 +14,8 @@ import org.agile.grenoble.questions.QuestionsType;
 	{		
 	    public static QuestionsType readItems(String filename) throws Exception
 	    {
-	    	//File po = new File("E:\\build\\workspace\\NokiaTest_FE\\src\\org\\agile\\grenoble\\data\\xml\\questions.xml");
 	    	File po = new File(filename);
-	        QuestionsDocument qsDoc =
-	        	QuestionsDocument.Factory.parse(po);
+	        QuestionsDocument qsDoc = QuestionsDocument.Factory.parse(po);
       
 	        QuestionsType qt = qsDoc.getQuestions();
 	        return qt ; 
@@ -36,10 +34,7 @@ import org.agile.grenoble.questions.QuestionsType;
 	         * Also, note that the parse method will only succeed if the
 	         * XML you're parsing appears to conform to the schema.
 	         */
-	    	//File po = new File("E:\\build\\workspace\\NokiaTest_FE\\src\\org\\agile\\grenoble\\data\\xml\\questions.xml");
-	    	//QuestionsDocument qsDoc =	QuestionsDocument.Factory.parse(po);
 
-	        //String filename = "E:\\build\\workspace\\NokiaTest_FE\\src\\org\\agile\\grenoble\\data\\xml\\questions.xml" ;
 	        QuestionsType qt = readItems(filename);
 	        
 	        QuestionType[] questions = qt.getQuestionArray();

@@ -21,10 +21,7 @@ public class NokiaTest {
 		NokiaSwing myDisplay = new NokiaSwing();
 		myDisplay.setVisible(true);
 		return myDisplay;
-	}
-	
-	
-	private static final String FILENAME = "src/org/agile/grenoble/data/xml/questions.xml" ;
+	}	
 	
 	/**
 	 * 
@@ -32,9 +29,7 @@ public class NokiaTest {
 	 */
 	public static void main (String[] argv) {
 		System.out.println(Messages.getString("NokiaTest.label")); //$NON-NLS-1$
-
-		ClassLoader.getSystemResource(".");
-		
+	
 		//parse arguments
 		QuestionsType questions=null;
 		AnswersStorage storage = new AnswersStorage();
@@ -60,10 +55,6 @@ public class NokiaTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
 		
 		System.out.println(Messages.getString("NokiaTest.EndLabel")); //$NON-NLS-1$
 	}

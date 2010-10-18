@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import org.agile.grenoble.Configuration;
+import org.agile.grenoble.Messages;
+
 public class HomePage extends JFrame {
 
 	/**
@@ -35,10 +38,10 @@ public class HomePage extends JFrame {
 	
 	private JPanel createHomePage() {
 		JPanel hp = new JPanel();
-		//TODO make the logo read in a config file
-		JLabel logoAgilent = Utils.getImage("E:\\build\\workspace\\NokiaTest_FE\\src\\resources\\images\\agilentlogo-home.gif");
-		JLabel logoKelkoo = Utils.getImage("E:\\build\\workspace\\NokiaTest_FE\\src\\resources\\images\\kelkoo.jpg");
-		JLabel logoFT = Utils.getImage("E:\\build\\workspace\\NokiaTest_FE\\src\\resources\\images\\orange-labs.jpg");
+
+		JLabel logoAgilent = Utils.getImage(Configuration.getString("NokiaTest.agilentLogo"));
+		JLabel logoKelkoo = Utils.getImage(Configuration.getString("NokiaTest.kelkooLogo"));
+		JLabel logoFT = Utils.getImage(Configuration.getString("NokiaTest.FTLogo"));
 		  
 		hp.add( logoAgilent ) ;
 		hp.add(logoKelkoo);

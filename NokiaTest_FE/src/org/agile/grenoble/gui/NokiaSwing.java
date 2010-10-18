@@ -27,6 +27,7 @@ import javax.swing.JRadioButton;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import org.agile.grenoble.Configuration;
 import org.agile.grenoble.Messages;
 import org.agile.grenoble.questions.AnswerType;
 import org.agile.grenoble.questions.AnswersType;
@@ -216,7 +217,7 @@ public class NokiaSwing  extends JFrame {
 			questionContainer.setLayout(new GridLayout(pQuestion.getAnswers().getAnswerArray().length+1, 1));
 	 		Label questionText = new Label(pQuestion.getLabel());
 			questionContainer.add(questionText);
-			JLabel questionMark= Utils.getImage("E:\\build\\workspace\\NokiaTest_FE\\src\\resources\\images\\question.jpg");
+			JLabel questionMark= Utils.getImage(Configuration.getString("NokiaTest.questionLogo"));
 		    questionContainer.add(questionMark);
 			addAnswers(pQuestion.getConfiguration(), pQuestion.getAnswers(), questionContainer);
 		} else {
