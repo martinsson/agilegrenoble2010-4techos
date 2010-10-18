@@ -35,11 +35,11 @@ import org.agile.grenoble.questions.ConfigurationType;
 import org.agile.grenoble.questions.QuestionType;
 import org.agile.grenoble.questions.QuestionsType;
 
-class myActionLogicListener implements ActionListener, ChangeListener {
+class MyActionLogicListener implements ActionListener, ChangeListener {
 
 	
 	AnswerType at = null; 
-	public myActionLogicListener(AnswerType pAt) {
+	public MyActionLogicListener(AnswerType pAt) {
 		at = pAt ;
 	}
 
@@ -76,7 +76,7 @@ class myActionLogicListener implements ActionListener, ChangeListener {
  * myCheckGroup handle the logic of a set of checkbox,
  * with a maximun number of selected elements
  */
-class myCheckGroup implements ActionListener {
+class MyCheckGroup implements ActionListener {
 	
 	int iMaxSelected = -1 ;
 	int iNbCheckedItem = 0 ;
@@ -85,7 +85,7 @@ class myCheckGroup implements ActionListener {
 	/*
 	 * maximun of element selectable in this group
 	 */
-	myCheckGroup(int maxSelected) {
+	MyCheckGroup(int maxSelected) {
 		iMaxSelected = maxSelected ; 
 	}
 	
@@ -257,13 +257,13 @@ public class NokiaSwing  extends JFrame {
 	 * 
 	 */
 	private void addCheckAnswers(ConfigurationType conf,AnswersType pAnswers, JPanel questionContainer) {
-		myCheckGroup buttonGroup = new myCheckGroup(conf.getNumber()) ;
+		MyCheckGroup buttonGroup = new MyCheckGroup(conf.getNumber()) ;
 
 		for (int i = 0; i< pAnswers.getAnswerArray().length; i++){
 			String answer =  pAnswers.getAnswerArray()[i].getLabel();
 			JCheckBox answerText = new JCheckBox(answer);
 			//listen to click / unclick 
-			answerText.addChangeListener(new myActionLogicListener(pAnswers.getAnswerArray()[i]));
+			answerText.addChangeListener(new MyActionLogicListener(pAnswers.getAnswerArray()[i]));
 			questionContainer.add(answerText);
 			buttonGroup.add(answerText);
 		}
@@ -282,7 +282,7 @@ public class NokiaSwing  extends JFrame {
 			JRadioButton answerText = new JRadioButton(answer);
 			questionContainer.add(answerText);
 			//listen to click / unclick
-			answerText.addChangeListener(new myActionLogicListener(pAnswers.getAnswerArray()[i]));
+			answerText.addChangeListener(new MyActionLogicListener(pAnswers.getAnswerArray()[i]));
 			buttonGroup.add(answerText);
 		}
 	}
@@ -300,7 +300,7 @@ public class NokiaSwing  extends JFrame {
 	}
 
 	@SuppressWarnings("deprecation")
-	public void DisplayFirstquestion() {
+	public void displayFirstquestion() {
 		getContentPane().setBackground(Color.lightGray);
 		//TODO remove welcome message
 		//getContentPane().remove(welcome);

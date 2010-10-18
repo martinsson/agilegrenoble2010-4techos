@@ -51,7 +51,7 @@ public class NokiaControler implements  ActionListener{
 	public void startQuestions(User pUser ) {
 		currentQuestionIndex = 0 ;
 		currentUser = pUser ;
-		iNokiaSwing.DisplayFirstquestion();
+		iNokiaSwing.displayFirstquestion();
 		registerNextQuestion();
 		
 	}

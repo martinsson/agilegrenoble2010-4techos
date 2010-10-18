@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.agile.grenoble.questions.AnswerType;
-import org.agile.grenoble.questions.AnswersType;
 import org.agile.grenoble.questions.ConfigurationType;
 import org.agile.grenoble.questions.QuestionType;
 import org.agile.grenoble.questions.QuestionsType;
@@ -23,7 +22,8 @@ public class AnswersStorage {
 	
 	private Connection getConnection() {
 		if (conn == null ) {
-			return createConnection();
+			conn = createConnection();
+			return conn ;
 		} else {
 			return conn ;
 		}
@@ -108,8 +108,6 @@ public class AnswersStorage {
 			System.out.println("Creation of table surveys failed" );
 		}
 		stat.close();
-
-		
 	}
 
 	private int getNbFields(QuestionType question) {
@@ -154,6 +152,7 @@ public class AnswersStorage {
 		
 		String fields = ""; 
 		boolean res = stat.execute("Drop table IF EXISTS NokiaTest.question_"+indice);
+		if (!res) System.out.println("failed to drop table question_"+indice);
 		int nb = getNbFields(question);
 		for (int i=0; i < nb;i++) {
 			if (i>0) fields += "," ;
@@ -179,6 +178,9 @@ public class AnswersStorage {
 				System.out.println("No result, should create a new one");
 				user = createUser(stat, pName);
 			}
+			res.close();
+			stat.close();
+			
 		} else {
 			System.out.println("ERROR GETTING A CONNECTION ") ;
 		} //end if 
@@ -188,7 +190,7 @@ public class AnswersStorage {
 	
 	private User createUser(Statement stat, String pName) throws SQLException {
 		boolean ok = stat.execute("INSERT INTO nokiatest.surveys (aName) VALUES ('"+pName+"');");
-		
+		if (!ok) System.out.println("Fail to add a new user") ;
 		User iUser = new User();
 		iUser.setName(pName);
 		ResultSet res = stat.executeQuery("SELECT LAST_INSERT_ID();");
@@ -198,6 +200,7 @@ public class AnswersStorage {
 			System.out.println("Can not get id generated for user ") ;
 			iUser.setId(-1);
 		}
+		res.close();
 		System.out.println("Create a user : " + pName + ", " + iUser.getId());
 		return iUser ; 
 	}
@@ -208,7 +211,7 @@ public class AnswersStorage {
 			Statement stat = conn.createStatement();
 			boolean res = true ; 
 			for (int i =0 ; i < questions.getQuestionArray().length; i++) {
-				res &= StorePointForQuestions(stat,questions.getQuestionArray(i),pUserId,i);
+				res &= storePointForQuestions(stat,questions.getQuestionArray(i),pUserId,i);
 		}	
 		} else {
 			System.out.println("ERROR GETTING A CONNECTION ") ;
@@ -256,7 +259,7 @@ public class AnswersStorage {
 		return points ; 
 	}
 
-	private boolean StorePointForQuestions(Statement stat, QuestionType question, int pUserId, int indice) throws SQLException {
+	private boolean storePointForQuestions(Statement stat, QuestionType question, int pUserId, int indice) throws SQLException {
 		String fields = getPoints(question);
 		String query = "Insert into NokiaTest.question_"+indice+" VALUES (" +pUserId +","+fields+") ; ";
 		System.out.println ("Query is : " + query );

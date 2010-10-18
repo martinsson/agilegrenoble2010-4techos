@@ -16,6 +16,9 @@ public class User {
 		anId = pId ;
 	}
 	
+	public String getName() {
+		return aName; 
+	}
 	
 	public int getId() {
 		return anId ; 
