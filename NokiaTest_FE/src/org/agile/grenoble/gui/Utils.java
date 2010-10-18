@@ -13,7 +13,9 @@ public class Utils {
 	static protected JLabel getImage(String filename) {
 		BufferedImage myPicture=null;
 		try {
-			myPicture = ImageIO.read(new File(filename));
+			//myPicture = ImageIO.read(new File(filename));
+			System.out.println("get ressource ("+filename+")=>" + Utils.class.getResource(filename));
+			myPicture= ImageIO.read(new File(Utils.class.getResource(filename).getFile() ));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -3,6 +3,9 @@ package org.agile.grenoble.data.xml;
 //import org.agile.grenoble.data.Question;
 import java.io.File;
 
+import javax.imageio.ImageIO;
+
+import org.agile.grenoble.gui.Utils;
 import org.agile.grenoble.questions.AnswerType;
 import org.agile.grenoble.questions.AnswersType;
 import org.agile.grenoble.questions.ConfigurationType;
@@ -14,7 +17,10 @@ import org.agile.grenoble.questions.QuestionsType;
 	{		
 	    public static QuestionsType readItems(String filename) throws Exception
 	    {
-	    	File po = new File(filename);
+	    	System.out.println("get ressource ("+filename+")=>" + QuestionsReader.class.getResource(filename));
+			File po = new File(QuestionsReader.class.getResource(filename).getFile() );
+			
+	    	//File po = new File(filename);
 	        QuestionsDocument qsDoc = QuestionsDocument.Factory.parse(po);
       
 	        QuestionsType qt = qsDoc.getQuestions();

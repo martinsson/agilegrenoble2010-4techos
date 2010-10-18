@@ -42,10 +42,12 @@ public class HomePage extends JFrame {
 		JLabel logoAgilent = Utils.getImage(Configuration.getString("NokiaTest.agilentLogo"));
 		JLabel logoKelkoo = Utils.getImage(Configuration.getString("NokiaTest.kelkooLogo"));
 		JLabel logoFT = Utils.getImage(Configuration.getString("NokiaTest.FTLogo"));
+		JLabel logoThales = Utils.getImage(Configuration.getString("NokiaTest.thalesLogo"));
 		  
 		hp.add( logoAgilent ) ;
 		hp.add(logoKelkoo);
 		hp.add(logoFT);
+		hp.add(logoThales);
 		return hp; 
 	}
 
