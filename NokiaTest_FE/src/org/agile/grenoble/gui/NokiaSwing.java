@@ -3,6 +3,7 @@ package org.agile.grenoble.gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
@@ -140,8 +141,8 @@ class MyCheckGroup implements ActionListener {
 
 public class NokiaSwing  extends JFrame {
 	
-	private static final int globalHeight = 400;
-	private static final int globalWidth = 400;
+	private static final int globalHeight = 500;
+	private static final int globalWidth = 600;
 	
 	/**
 	 * 
@@ -214,11 +215,27 @@ public class NokiaSwing  extends JFrame {
 	private JPanel generateQuestionPanel(QuestionType pQuestion) throws Exception {
 		JPanel questionContainer = generateQuestionArea();
 		if (pQuestion.getConfiguration().getType() != ConfigurationType.Type.COMPLEXE) {
+			
 			questionContainer.setLayout(new GridLayout(pQuestion.getAnswers().getAnswerArray().length+1, 1));
-	 		Label questionText = new Label(pQuestion.getLabel());
+	 		
+			Label questionText = new Label(pQuestion.getLabel());
 			questionContainer.add(questionText);
 			JLabel questionMark= Utils.getImage(Configuration.getString("NokiaTest.questionLogo"));
-		    questionContainer.add(questionMark);
+			
+			JPanel questionPanel = new JPanel();
+			questionPanel.setLayout(new GridLayout(1, 2));
+			
+			Font font = new Font("sansserif", Font.BOLD, 16);
+			
+			questionText.setBackground(Color.blue);
+			questionText.setForeground(Color.yellow);
+			questionMark.setBackground(Color.blue);
+			questionText.setFont(font);
+			
+			questionPanel.add(questionText);
+			questionPanel.add(questionMark);
+		    
+		    questionContainer.add(questionPanel);
 			addAnswers(pQuestion.getConfiguration(), pQuestion.getAnswers(), questionContainer);
 		} else {
 			//the question if made of several question 
