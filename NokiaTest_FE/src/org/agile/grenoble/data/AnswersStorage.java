@@ -10,6 +10,7 @@ import org.agile.grenoble.questions.AnswersType;
 import org.agile.grenoble.questions.ConfigurationType;
 import org.agile.grenoble.questions.QuestionType;
 import org.agile.grenoble.questions.QuestionsType;
+import org.agile.grenoble.user.User;
 
 import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
 
@@ -18,6 +19,7 @@ import java.sql.Connection ;
 public class AnswersStorage {
 
 	Connection conn = null ; 
+	int schemaVersion = 1 ;
 	
 	private Connection getConnection() {
 		if (conn == null ) {
@@ -27,9 +29,6 @@ public class AnswersStorage {
 		}
 	}
 	
-	
-	
-	
 	private Connection createConnection() {
 		Connection conn = null; 
 		try {
@@ -37,19 +36,19 @@ public class AnswersStorage {
 	        conn = DriverManager.getConnection("jdbc:mysql://localhost/NokiaTest?" + 
 		                                    "user=root&password=agile123");
 
-		 } catch (SQLException ex) {
-		     // handle any errors
-		     System.out.println("SQLException: " + ex.getMessage());
-		     System.out.println("SQLState: " + ex.getSQLState());
-		     System.out.println("VendorError: " + ex.getErrorCode());
+		 } catch (SQLException e) {
+		     // handle any errors of type SQL
+		     System.out.println("SQLException: " + e.getMessage());
+		     System.out.println("SQLState: " + e.getSQLState());
+		     System.out.println("VendorError: " + e.getErrorCode());
 		 } catch (InstantiationException e) {
-			// TODO Auto-generated catch block
+			 System.out.println("SQLException: " + e.getMessage());
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
+			System.out.println("SQLException: " + e.getMessage());
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+			System.out.println("SQLException: " + e.getMessage());
 			e.printStackTrace();
 		}
 		return conn ; 
@@ -61,7 +60,7 @@ public class AnswersStorage {
 			Statement stat = conn.createStatement();
 			ResultSet res = null; 
 			try {
-				res = stat.executeQuery("select * from NokiaTest.NokiaTest");
+				res = stat.executeQuery("select * from NokiaTest.versions order by anId");
 			} catch (MySQLSyntaxErrorException e) {
 				System.out.println("No result: " +e );
 				//e.printStackTrace();
@@ -70,6 +69,8 @@ public class AnswersStorage {
 				stat.close();
 				initDB(conn,questions);				
 			} else {
+				System.out.println("Up2date table, doing nothing");
+				//TODO we should check the version installed of the schema
 				res.close();
 				stat.close();
 			}
@@ -82,9 +83,21 @@ public class AnswersStorage {
 		boolean res = stat.execute("Create database IF NOT EXISTS NokiaTest");
 		if (res) {
 			System.out.println("Creation of database succeed" );
+		} else {
+			System.out.println("DB not created, should exist");
 		}
-		
-		res = createSurveyTable(stat);
+		stat.close();
+		stat = conn.createStatement() ;
+		res &= createSurveyTable(stat);
+		if (res) {
+			System.out.println("Creation of survey table  succeed" );
+		}
+		stat.close();
+		stat = conn.createStatement() ;
+		res &= createVersionTable(stat);
+		if (res) {
+			System.out.println("Creation of version table  succeed" );
+		}
 		//TODO generate schema from table definition ... simple/complex....
 		for (int i =0 ; i < questions.getQuestionArray().length; i++) {
 				res &= createTableForQuestions(stat,questions.getQuestionArray(i),i);
@@ -118,7 +131,18 @@ public class AnswersStorage {
 
 	private boolean createSurveyTable(Statement stat) throws SQLException {		
 		boolean res = stat.execute("Drop table IF EXISTS NokiaTest.surveys");
-		res &= stat.execute("Create table NokiaTest.surveys (anId INT AUTO_INCREMENT UNIQUE, aName VARCHAR(56), aDate TIMESTAMP)");
+		System.out.println("Drop table (survey) status " + res ) ;
+		res &= stat.execute("Create table NokiaTest.surveys (anId INT AUTO_INCREMENT UNIQUE, aName VARCHAR(56), aDate TIMESTAMP)") ;
+		return res ;
+	}
+
+	private boolean createVersionTable(Statement stat) throws SQLException {		
+		boolean res = stat.execute("Drop table IF EXISTS NokiaTest.versions");
+		System.out.println("Drop table  (version) status " + res ) ;
+		res &= stat.execute("Create table NokiaTest.versions (anId INT AUTO_INCREMENT UNIQUE, aVersion VARCHAR(56), aDate TIMESTAMP)") ;
+		System.out.println("Create table status " + res ) ;
+		res &= stat.execute("insert into NokiaTest.versions (aVersion) values ("+schemaVersion+")");
+		System.out.println("Version insertion status " + res ) ;
 		return res ;
 	}
 
@@ -139,6 +163,43 @@ public class AnswersStorage {
 		System.out.println ("Query is : " + query );
 		res = stat.execute(query);		
 		return res; 
+	}
+
+	public User getorCreateUser(String pName) throws SQLException {
+		Connection conn = getConnection();
+		User user = null ; 
+		if (conn != null) { 
+			Statement stat = conn.createStatement();
+			ResultSet res = stat.executeQuery("Select anId, aName from nokiatest.surveys where aName='"+pName+"' ;") ;
+			user = new User();
+			if ((res != null) && res.next() ) {
+				user.setName(res.getString(2));
+				user.setId(res.getInt(1));
+			} else {
+				System.out.println("No result, should create a new one");
+				user = createUser(stat, pName);
+			}
+		} else {
+			System.out.println("ERROR GETTING A CONNECTION ") ;
+		} //end if 
+		return user ; 
+	}
+	
+	
+	private User createUser(Statement stat, String pName) throws SQLException {
+		boolean ok = stat.execute("INSERT INTO nokiatest.surveys (aName) VALUES ('"+pName+"');");
+		
+		User iUser = new User();
+		iUser.setName(pName);
+		ResultSet res = stat.executeQuery("SELECT LAST_INSERT_ID();");
+		if (res.next()) {
+			iUser.setId(res.getInt(1));
+		} else {
+			System.out.println("Can not get id generated for user ") ;
+			iUser.setId(-1);
+		}
+		System.out.println("Create a user : " + pName + ", " + iUser.getId());
+		return iUser ; 
 	}
 
 	public void storeAnswers(QuestionsType questions, int pUserId) throws SQLException {

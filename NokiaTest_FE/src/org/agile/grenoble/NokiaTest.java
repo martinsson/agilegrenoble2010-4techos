@@ -5,6 +5,7 @@ import org.agile.grenoble.data.xml.QuestionsReader;
 import org.agile.grenoble.gui.NokiaControler;
 import org.agile.grenoble.gui.NokiaSwing;
 import org.agile.grenoble.questions.QuestionsType;
+import org.agile.grenoble.user.User;
 
 /**
  * 
@@ -30,7 +31,7 @@ public class NokiaTest {
 	 * @param argv
 	 */
 	public static void main (String[] argv) {
-		System.out.println("HEllo, welcome to the nokia test");
+		System.out.println(Messages.getString("NokiaTest.label")); //$NON-NLS-1$
 
 		ClassLoader.getSystemResource(".");
 		
@@ -38,8 +39,10 @@ public class NokiaTest {
 		QuestionsType questions=null;
 		AnswersStorage storage = new AnswersStorage();
 		try {
-			QuestionsReader.printItems(FILENAME);
-			questions = QuestionsReader.readItems(FILENAME);
+			
+			String filename = Configuration.getString("NokiaTest.questionsPath") ; //$NON-NLS-1$
+			QuestionsReader.printItems(filename);
+			questions = QuestionsReader.readItems(filename);
 			//call master class
 			NokiaSwing gui = initMainGUI();
 			gui.generateQuestionDisplay(questions);
@@ -48,9 +51,11 @@ public class NokiaTest {
 			nc.setQuestions(questions);
 			storage.initializeDB(questions);
 			
-			Thread.currentThread().sleep(500);
+			
 			nc.setStorage(storage);
-			nc.startQuestions();
+			nc.startHomePage(); //blocker call
+			User user = nc.startUserRegistration(); // blocker call
+			nc.startQuestions(user);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -60,7 +65,7 @@ public class NokiaTest {
 		
 		
 		
-		System.out.println("HEllo, end of the nokia test");
+		System.out.println(Messages.getString("NokiaTest.EndLabel")); //$NON-NLS-1$
 	}
 
 	

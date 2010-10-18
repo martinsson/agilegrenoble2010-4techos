@@ -27,6 +27,7 @@ import javax.swing.JRadioButton;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import org.agile.grenoble.Messages;
 import org.agile.grenoble.questions.AnswerType;
 import org.agile.grenoble.questions.AnswersType;
 import org.agile.grenoble.questions.ConfigurationType;
@@ -166,9 +167,8 @@ public class NokiaSwing  extends JFrame {
 		//JPanel questionArea = new JPanel();
 		iPanel=  generateQuestionsPanels(pQuestions);
 
-		welcome = HomePage(); 
-		getContentPane().add(welcome);
-		
+		//welcome = HomePage(); 
+		//getContentPane().add(welcome);
 		getContentPane().setBackground(Color.lightGray);
 		iNavBar = generateNavigationBar();
 
@@ -176,43 +176,6 @@ public class NokiaSwing  extends JFrame {
 		repaint();
 	}
 	
-
-	private static final String logoAgilentPath = ClassLoader.getSystemResource("images/agilentlogo-home.gif").getFile();
-	private static final String logoKelkooPath = ClassLoader.getSystemResource("images/kelkoo.jpg").getFile();
-	private static final String logoOrangePath = ClassLoader.getSystemResource("images/orange-labs.jpg").getFile();
-	private static final String logoThalesPath = ClassLoader.getSystemResource("images/THALES.gif").getFile();
-
-//	private static final String logoAgilentPath = "src/resources/images/agilentlogo-home.gif";
-//	private static final String logoKelkooPath = "src/resources/images/kelkoo.jpg";
-//	private static final String logoOrangePath = "src/resources/images/orange-labs.jpg";
-
-	
-	private JPanel HomePage() {
-		JPanel hp = new JPanel();
-		//TODO make the logo read in a config file
-		JLabel logoAgilent = getImage(logoAgilentPath);
-		JLabel logoKelkoo = getImage(logoKelkooPath);
-		JLabel logoFT = getImage(logoOrangePath);
-		JLabel logoTHALES = getImage(logoThalesPath);
-		  
-		hp.add( logoAgilent ) ;
-		hp.add(logoKelkoo);
-		hp.add(logoFT);
-		hp.add(logoTHALES);
-		return hp; 
-	}
-
-	private JLabel getImage(String filename) {
-		BufferedImage myPicture=null;
-		try {
-			myPicture = ImageIO.read(new File(filename));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		JLabel picLabel = new JLabel(new ImageIcon( myPicture ));
-		return picLabel;
-	}
 	
 	/* 
 	 * Navigation Bar (may be a standalone class soon )
@@ -253,8 +216,7 @@ public class NokiaSwing  extends JFrame {
 			questionContainer.setLayout(new GridLayout(pQuestion.getAnswers().getAnswerArray().length+1, 1));
 	 		Label questionText = new Label(pQuestion.getLabel());
 			questionContainer.add(questionText);
-			
-			JLabel questionMark= getImage(FILENAME);
+			JLabel questionMark= Utils.getImage("E:\\build\\workspace\\NokiaTest_FE\\src\\resources\\images\\question.jpg");
 		    questionContainer.add(questionMark);
 			addAnswers(pQuestion.getConfiguration(), pQuestion.getAnswers(), questionContainer);
 		} else {
@@ -340,7 +302,7 @@ public class NokiaSwing  extends JFrame {
 	public void DisplayFirstquestion() {
 		getContentPane().setBackground(Color.lightGray);
 		//TODO remove welcome message
-		getContentPane().remove(welcome);
+		//getContentPane().remove(welcome);
 		getContentPane().add(iPanel[0], BorderLayout.NORTH);
 		//TODO add i18n
 		nextOrTerminate.setLabel("Next");
@@ -359,9 +321,9 @@ public class NokiaSwing  extends JFrame {
 		getContentPane().add(iPanel[currentQuestionIndex], BorderLayout.NORTH);
 		//TODO add i18n
 		if (isLast) {
-			nextOrTerminate.setLabel("Go Home !!! ");
+			nextOrTerminate.setLabel(Messages.getString("NokiaTest.goHome"));
 		} else {
-			nextOrTerminate.setLabel("Next");
+			nextOrTerminate.setLabel(Messages.getString("NokiaTest.next"));
 		}
 		//getContentPane().add(iNavBar, BorderLayout.SOUTH );
 		pack();

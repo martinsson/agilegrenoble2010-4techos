@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import org.agile.grenoble.data.AnswersStorage;
 import org.agile.grenoble.questions.QuestionsType;
+import org.agile.grenoble.user.User;
 /*
  * MVC model, the controler will control the gui, and send proper information 
  * to storage mechanism
@@ -27,6 +28,7 @@ public class NokiaControler implements  ActionListener{
 	//	the GUI
 	NokiaSwing iNokiaSwing = null;
 	
+	User currentUser = null ; 
 	//the current question (will allow future back button too)
 	int currentQuestionIndex = -1 ;
 	
@@ -46,8 +48,9 @@ public class NokiaControler implements  ActionListener{
 	}
 	
 	/* start the survey */
-	public void startQuestions() {
+	public void startQuestions(User pUser ) {
 		currentQuestionIndex = 0 ;
+		currentUser = pUser ;
 		iNokiaSwing.DisplayFirstquestion();
 		registerNextQuestion();
 		
@@ -72,7 +75,7 @@ public class NokiaControler implements  ActionListener{
 		if (currentQuestionIndex == iQuestions.sizeOfQuestionArray() -1 ) {
 			iNokiaSwing.TerminateTest();
 			try {
-				storage.storeAnswers(iQuestions, 1);
+				storage.storeAnswers(iQuestions, currentUser.getId());
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -82,6 +85,17 @@ public class NokiaControler implements  ActionListener{
 			boolean isLast = ( currentQuestionIndex == iQuestions.sizeOfQuestionArray()-1); 
 			iNokiaSwing.nextQuestion(currentQuestionIndex,isLast);
 		}
+	}
+
+	public void startHomePage() {
+		HomePage hp = new HomePage();
+		hp.display();
+	}
+
+	public User startUserRegistration() {
+		UserRegistration ur = new UserRegistration(storage);
+		User user = ur.createUser();
+		return user ; 
 	}
 	
 	
