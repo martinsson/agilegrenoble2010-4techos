@@ -32,7 +32,7 @@ public class HomePage extends JFrame {
 	
 	public void display() {
 		try {
-			Thread.currentThread().sleep(5000);
+			Thread.currentThread().sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Failed to wait some time ") ;

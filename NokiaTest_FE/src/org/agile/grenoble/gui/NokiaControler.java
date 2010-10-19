@@ -94,7 +94,17 @@ public class NokiaControler implements  ActionListener{
 
 	public User startUserRegistration() {
 		UserRegistration ur = new UserRegistration(storage);
-		User user = ur.createUser();
+		User user = ur.getUser();
+		while (user == null ) {
+			user = ur.getUser();
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 		return user ; 
 	}
 	

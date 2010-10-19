@@ -15,10 +15,12 @@ import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
 
 import java.sql.Connection ;
 
+import javax.swing.JTextField;
+
 public class AnswersStorage {
 
 	Connection conn = null ; 
-	int schemaVersion = 1 ;
+	int schemaVersion = 2 ;
 	
 	private Connection getConnection() {
 		if (conn == null ) {
@@ -130,7 +132,7 @@ public class AnswersStorage {
 	private boolean createSurveyTable(Statement stat) throws SQLException {		
 		boolean res = stat.execute("Drop table IF EXISTS NokiaTest.surveys");
 		System.out.println("Drop table (survey) status " + res ) ;
-		res &= stat.execute("Create table NokiaTest.surveys (anId INT AUTO_INCREMENT UNIQUE, aName VARCHAR(56), aDate TIMESTAMP)") ;
+		res &= stat.execute("Create table NokiaTest.surveys (anId INT AUTO_INCREMENT UNIQUE, aName VARCHAR(56), anEmail VARCHAR(56), aDate TIMESTAMP)") ;
 		return res ;
 	}
 
@@ -164,19 +166,20 @@ public class AnswersStorage {
 		return res; 
 	}
 
-	public User getorCreateUser(String pName) throws SQLException {
+	public User getorCreateUser(String pName, String pEmail) throws SQLException {
 		Connection conn = getConnection();
 		User user = null ; 
 		if (conn != null) { 
 			Statement stat = conn.createStatement();
-			ResultSet res = stat.executeQuery("Select anId, aName from nokiatest.surveys where aName='"+pName+"' ;") ;
+			ResultSet res = stat.executeQuery("Select anId, aName, anEmail from nokiatest.surveys where aName='"+pName+"' ;") ;
 			user = new User();
 			if ((res != null) && res.next() ) {
 				user.setName(res.getString(2));
+				user.setEmail(res.getString(3));
 				user.setId(res.getInt(1));
 			} else {
 				System.out.println("No result, should create a new one");
-				user = createUser(stat, pName);
+				user = createUser(stat, pName,pEmail);
 			}
 			res.close();
 			stat.close();
@@ -188,11 +191,12 @@ public class AnswersStorage {
 	}
 	
 	
-	private User createUser(Statement stat, String pName) throws SQLException {
-		boolean ok = stat.execute("INSERT INTO nokiatest.surveys (aName) VALUES ('"+pName+"');");
+	private User createUser(Statement stat, String pName, String pEmail) throws SQLException {
+		boolean ok = stat.execute("INSERT INTO nokiatest.surveys (aName,anEmail) VALUES ('"+pName+"','"+pEmail+"');");
 		if (!ok) System.out.println("Fail to add a new user") ;
 		User iUser = new User();
 		iUser.setName(pName);
+		iUser.setEmail(pEmail);
 		ResultSet res = stat.executeQuery("SELECT LAST_INSERT_ID();");
 		if (res.next()) {
 			iUser.setId(res.getInt(1));
@@ -201,7 +205,7 @@ public class AnswersStorage {
 			iUser.setId(-1);
 		}
 		res.close();
-		System.out.println("Create a user : " + pName + ", " + iUser.getId());
+		System.out.println("Create a user : " + pName + ", " + iUser.getEmail() + ","+ iUser.getId() );
 		return iUser ; 
 	}
 
