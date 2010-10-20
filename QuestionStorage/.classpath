@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionStorage/target/dependency/xml-public-2.5.0.jar"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionStorage/target/dependency/avalon-framework-4.1.3.jar"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionStorage/target/dependency/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionStorage/target/dependency/hsqldb-2.0.0.jar"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionStorage/target/dependency/jsr-api-2.5.0.jar"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionStorage/target/dependency/log4j-1.2.12.jar"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionStorage/target/dependency/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionStorage/target/dependency/logkit-1.0.1.jar"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionStorage/target/dependency/mysqlconnector-5.0.8.jar"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionStorage/target/dependency/questiontype-1.0.0.jar"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionStorage/target/dependency/resolver-2.5.0.jar"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionStorage/target/dependency/servlet-api-2.3.jar"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionStorage/target/dependency/sqltools-2.0.0.jar"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionStorage/target/dependency/xbeans-2.5.0.jar"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionStorage/target/dependency/xbeans-qname-2.5.0.jar"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionStorage/target/dependency/xbeans-xpath-2.5.0.jar"/>
+	<classpathentry kind="lib" path="E:/build/workspace/QuestionStorage/target/QuestionStorage-1.0-SNAPSHOT.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
