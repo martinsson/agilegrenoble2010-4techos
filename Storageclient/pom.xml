@@ -1,0 +1,267 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<name>Nokia test implementation for Agile 4 techos </name>
+	<url>http://code.google.com/p/agilegrenoble2010-4techos/</url>
+	<description>Agile 4 techos </description>
+	
+	<groupId>org.agile4techos.nokiatest</groupId>
+	<artifactId>StorageClient</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<!--
+	<parent> 
+		<groupId>Agilent.CI.BuildTools.Helpers</groupId> 
+		<artifactId>PomParent</artifactId> 
+		<version>1.0.3</version> 
+	</parent> 
+	-->
+	<developers>
+      <developer>
+         <id>Laurent </id>
+         <name>Laurent Tardif</name>
+         <email>Laurent.Tardif@agilent.com</email>
+         <roles>
+            <role>Project Manager</role>
+            <role>Architect</role>
+			<role>Student</role>
+         </roles>
+         <organization>Cara</organization>
+         <timezone>+1</timezone>
+       </developer>         
+   </developers>
+   
+    <scm>
+      <connection>scm:svn:http://agilegrenoble2010-4techos.googlecode.com/svn/trunk/</connection>
+      <developerConnection>scm:svn:http://agilegrenoble2010-4techos.googlecode.com/svn/trunk/ agilegrenoble2010-4techos-read-only</developerConnection>
+      <url>http://agilegrenoble2010-4techos.googlecode.com/svn/trunk/</url>
+   </scm> 
+	
+	<build>
+		<directory>${project.basedir}/target</directory>
+		<outputDirectory>${project.build.directory}/classes</outputDirectory>
+		<sourceDirectory>${project.basedir}/src/</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/resources</directory>
+			</resource>
+		</resources>
+		 <pluginManagement>
+       <plugins>
+         <plugin>
+           <artifactId>maven-assembly-plugin</artifactId>
+           <version>2.2-beta-2</version>
+         </plugin>         
+         <plugin>
+           <artifactId>maven-clean-plugin</artifactId>
+           <version>2.2</version>
+         </plugin>
+         <plugin>
+           <artifactId>maven-compiler-plugin</artifactId>
+           <version>2.0.2</version>
+		   <configuration>
+                     <source>1.5</source>
+                     <target>1.5</target>
+           </configuration>
+         </plugin>
+         <plugin>
+           <artifactId>maven-dependency-plugin</artifactId>
+           <version>2.0</version>
+         </plugin>
+         <plugin>
+           <artifactId>maven-deploy-plugin</artifactId>
+           <version>2.4</version>
+         </plugin>
+         <plugin>
+           <artifactId>maven-ear-plugin</artifactId>
+           <version>2.3.1</version>
+         </plugin>
+         <plugin>
+           <artifactId>maven-ejb-plugin</artifactId>
+           <version>2.1</version>
+         </plugin>
+         <plugin>
+           <artifactId>maven-install-plugin</artifactId>
+           <version>2.2</version>
+         </plugin>
+         <plugin>
+           <artifactId>maven-jar-plugin</artifactId>
+           <version>2.2</version>
+         </plugin>
+         <plugin>
+           <artifactId>maven-javadoc-plugin</artifactId>
+           <version>2.5</version>
+         </plugin>
+         <plugin>
+           <artifactId>maven-plugin-plugin</artifactId>
+           <version>2.4.3</version>
+         </plugin>
+         <plugin>                
+           <artifactId>maven-resources-plugin</artifactId>
+           <version>2.3</version>
+         </plugin>
+        <plugin>
+			<artifactId>maven-site-plugin</artifactId>
+			<version>2.1</version>
+			<configuration>
+				<locales>en,fr,de</locales>
+			</configuration>
+        </plugin>
+         <plugin>
+           <artifactId>maven-source-plugin</artifactId>
+           <version>2.0.4</version>
+         </plugin>         
+         <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.4.3</version>
+         </plugin>
+         <plugin>
+           <artifactId>maven-war-plugin</artifactId>
+           <version>2.1-alpha-2</version>
+         </plugin>
+       </plugins>
+     </pluginManagement>
+	</build>
+	
+	<reporting>
+     
+        <plugins>
+			
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jxr-maven-plugin</artifactId>
+			</plugin>      
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+            </plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jdepend-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+                  <groupId>org.codehaus.mojo</groupId>
+                  <artifactId>javancss-maven-plugin</artifactId>
+                  <version>2.0-beta-1</version>
+            </plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>2.0.1</version>
+				<configuration>
+					<findbugsXmlOutput>true</findbugsXmlOutput>
+					<!-- Optional directory to put findbugs xml report -->
+					<findbugsXmlOutputDirectory>target/site</findbugsXmlOutputDirectory>
+				</configuration>
+			</plugin>
+    
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<configuration>
+					<targetjdk>1.5</targetjdk>
+					<rulesets>
+						<ruleset>/rulesets/basic.xml</ruleset>
+						<ruleset>/rulesets/controversial.xml</ruleset>
+					</rulesets>
+					<format>xml</format>
+					<linkXref>true</linkXref>
+					<sourceEncoding>utf-8</sourceEncoding>
+					<minimumTokens>100</minimumTokens>
+				</configuration>
+			</plugin>
+			<!--
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>dashboard-maven-plugin</artifactId>
+				<configuration>
+					<historic>true</historic>
+				</configuration>
+			</plugin>
+			-->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>changes-maven-plugin</artifactId>
+				<configuration>
+					<xmlPath>${basedir}/src/site/changes.xml</xmlPath>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>changes-report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>			
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>changelog-maven-plugin</artifactId>
+			</plugin>
+         </plugins>
+    
+     </reporting>
+	  
+	  
+	<dependencies>
+		<dependency>
+			<!-- to override commons-logging in Hibernate library dependancy -->
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1</version>
+		</dependency>
+  
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>1.4</version>
+		</dependency>
+  
+		<dependency>
+			<groupId>org.apache.log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+	<dependency>
+      <groupId>org.mysql.connector</groupId>
+      <artifactId>mysqlconnector</artifactId>
+      <version>5.0.8</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
+	<dependency>
+      <groupId>org.hsqldb.db</groupId>
+      <artifactId>hsqldb</artifactId>
+      <version>2.0.0</version>
+      <type>jar</type>
+      <scope>tests</scope>
+    </dependency>
+	
+	<dependency>
+      <groupId>org.apache.xmlbeans</groupId>
+      <artifactId>xbeans</artifactId>
+      <version>2.5.0</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
+		
+	<dependency>
+		<groupId>org.agile4techos.nokiatest</groupId>
+		<artifactId>questiontype</artifactId>
+		<version>1.0.0</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+	
+  </dependencies>
+</project>
