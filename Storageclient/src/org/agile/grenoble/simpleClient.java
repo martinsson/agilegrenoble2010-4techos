@@ -19,7 +19,7 @@ public class simpleClient {
 			        MediaType.APPLICATION_JSON_TYPE,
 			        MediaType.APPLICATION_XML_TYPE).
 			        header("X-FOO", "BAR").get(String.class); 
-		System.out.println("Response is " + response ) ;
+		System.out.println("Response is :" + response ) ;
 	}
 	
 }
