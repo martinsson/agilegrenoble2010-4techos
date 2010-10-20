@@ -77,9 +77,15 @@ cmd /c mvn install:install-file -DgroupId=org.apache.xmlbeans -DartifactId=xml-p
 
 rem Create a repository with all dependencies to be imported into eclispe 
 echo "uploading dependencies in eclipse layout"
-cmd /c mvn  -f %workspaceDir%\NokiaTest_FE\pom.xml dependency:copy-dependencies
 cmd /c mvn  -f %workspaceDir%\QuestionsType\pom.xml dependency:copy-dependencies
 
+cmd /c mvn  -f %workspaceDir%\QuestionStorage\pom.xml dependency:copy-dependencies jar:jar
+cmd /c mvn install:install-file -DgroupId=org.agile4techos.nokiatest -DartifactId=questionStorage -Dversion=1.0-SNAPSHOT -Dpackaging=jar -Dfile=%workspaceDir%\QuestionStorage\target\questionStorage-1.0-SNAPSHOT.jar -DpomFile=%workspaceDir%\QuestionStorage\pom.xml 
+
+cmd /c mvn  -f %workspaceDir%\StorageServer\pom.xml dependency:copy-dependencies
+cmd /c mvn  -f %workspaceDir%\StorageClient\pom.xml dependency:copy-dependencies
+
+cmd /c mvn  -f %workspaceDir%\NokiaTest_FE\pom.xml dependency:copy-dependencies
 popd 
 
 
