@@ -13,5 +13,6 @@
 	<classpathentry kind="lib" path="target/dependency/xbeans-qname-2.5.0.jar"/>
 	<classpathentry kind="lib" path="target/dependency/xbeans-xpath-2.5.0.jar"/>
 	<classpathentry kind="lib" path="target/dependency/xml-public-2.5.0.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/QuestionStorage"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

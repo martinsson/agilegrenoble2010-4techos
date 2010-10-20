@@ -226,13 +226,19 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-	<dependency>
-      <groupId>org.mysql.connector</groupId>
-      <artifactId>mysqlconnector</artifactId>
-      <version>5.0.8</version>
-      <type>jar</type>
-      <scope>compile</scope>
-    </dependency>
+		<dependency>
+			<groupId>org.agile4techos.nokiatest</groupId>
+			<artifactId>QuestionStorage</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<type>jar</type>		
+		</dependency>
+		<dependency>
+			<groupId>org.mysql.connector</groupId>
+			<artifactId>mysqlconnector</artifactId>
+			<version>5.0.8</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
 	<dependency>
       <groupId>org.hsqldb.db</groupId>
       <artifactId>hsqldb</artifactId>
