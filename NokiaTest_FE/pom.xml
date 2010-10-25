@@ -42,6 +42,10 @@
 			<resource>
 				<directory>${project.basedir}/src/resources</directory>
 			</resource>
+			<resource>
+				<directory>${project.basedir}/src/org/agile/grenoble</directory>
+				<targetPath>${project.basedir}/target/classes/org/agile/grenoble</targetPath>
+			</resource>
 		</resources>
 		 <pluginManagement>
        <plugins>
