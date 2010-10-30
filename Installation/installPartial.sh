@@ -1,8 +1,4 @@
-# LTA : tu pourrais au moins prendre un parametre a la ligne de commande :-)
-# gougnafier :)
-
-workspaceDir=/home/cyrille/workspace
-
+workspaceDir=..
 
 mvn install:install-file -DgroupId=org.apache.xmlbeans -DartifactId=xbeans -Dversion=2.5.0 -Dpackaging=jar -Dfile=$workspaceDir/ThirdParty/xmlBeans/lib/xbean.jar -DpomFile=$workspaceDir/ThirdParty/poms/pomXbeans.xml
 
