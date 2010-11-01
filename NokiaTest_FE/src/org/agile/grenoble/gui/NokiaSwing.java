@@ -150,7 +150,7 @@ public class NokiaSwing  extends JFrame {
 	JButton  nextOrTerminate = null ;
 	JPanel welcome = null;
 
-	private String userName;
+	private String userName = "undefined";
 
 	public NokiaSwing ()  { 
 		super();
@@ -351,6 +351,8 @@ public class NokiaSwing  extends JFrame {
 	}
 
 	public void setUserName(User user) {
-		this.userName = user.getName();
+		if (user == null) {
+			this.userName = user.getName();
+		}
 	}
 }
