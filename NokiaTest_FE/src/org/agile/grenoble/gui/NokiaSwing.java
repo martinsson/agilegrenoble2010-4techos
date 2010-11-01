@@ -204,7 +204,7 @@ public class NokiaSwing  extends JFrame {
 		return questionsPanels;
 	}
 		
-	private static final String	FILENAME = "src/resources/images/question.JPG";
+	private static final String	FILENAME = "src/resources/images/question_full.jpg";
 
 	/** 
 	 * We return a panel per question, allowing us to display several panel in the same page
@@ -220,7 +220,8 @@ public class NokiaSwing  extends JFrame {
 	 		
 			Label questionText = new Label(pQuestion.getLabel());
 			questionContainer.add(questionText);
-			JLabel questionMark= Utils.getImage(Configuration.getString("NokiaTest.questionLogo"));
+//			JLabel questionMark= Utils.getImage(Configuration.getString("NokiaTest.kelkooLogo"));
+//			JLabel questionMark= Utils.getImage(FILENAME);
 			
 			JPanel questionPanel = new JPanel();
 			questionPanel.setLayout(new GridLayout(1, 2));
@@ -229,11 +230,11 @@ public class NokiaSwing  extends JFrame {
 			
 			questionText.setBackground(Color.blue);
 			questionText.setForeground(Color.yellow);
-			questionMark.setBackground(Color.blue);
+//			questionMark.setBackground(Color.blue);
 			questionText.setFont(font);
 			
 			questionPanel.add(questionText);
-			questionPanel.add(questionMark);
+//			questionPanel.add(questionMark);
 		    
 		    questionContainer.add(questionPanel);
 			addAnswers(pQuestion.getConfiguration(), pQuestion.getAnswers(), questionContainer);
@@ -349,7 +350,7 @@ public class NokiaSwing  extends JFrame {
 		
 	}
 
-	public void TerminateTest() {
+	public void terminateTest() {
 		dispose();
 		
 	}

@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 public class Utils {
 
 	static protected JLabel getImage(String filename) {
-		BufferedImage myPicture=null;
+		BufferedImage myPicture = null;
 		try {
 			//myPicture = ImageIO.read(new File(filename));
 			System.out.println("get ressource ("+filename+")=>" + Utils.class.getResource(filename));

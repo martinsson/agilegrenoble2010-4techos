@@ -84,12 +84,31 @@ public class UserRegistration extends JFrame {
 	public User getUser() {
 		User user = null ; 
 		if ( username == null || usermail==null ) {
+			user = new User();
+			user.setId(1);
+			user.setName("unknown");
+			user.setEmail("pedro@gmail.com");
 			//do nothing
 			System.out.println("User data not yet collected");
 		} else {
 			user = UserFactory.getUser(username+"_"+System.currentTimeMillis(), usermail,iStorage) ;
 		}
 		
+		welcomeUser(user);
 		return user;
 	}
+	
+	private void welcomeUser(User user) {
+		JPanel jpanel = new JPanel() ;
+		getContentPane().add(jpanel);
+		jpanel.setLayout(new GridLayout());
+		JLabel name =  new JLabel("Welcome dear " + user.getName().toString() + ","); 
+		
+		jpanel.add(name);
+		jpanel.setSize(300,200);
+		
+		pack();
+		setVisible(true);
+	}
+	
 }

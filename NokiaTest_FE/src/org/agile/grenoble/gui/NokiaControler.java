@@ -1,8 +1,14 @@
 package org.agile.grenoble.gui;
 
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import org.agile.grenoble.data.AnswersStorage;
 import org.agile.grenoble.questions.QuestionsType;
@@ -73,7 +79,7 @@ public class NokiaControler implements  ActionListener{
 //	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		if (currentQuestionIndex == iQuestions.sizeOfQuestionArray() -1 ) {
-			iNokiaSwing.TerminateTest();
+			iNokiaSwing.terminateTest();
 			try {
 				storage.storeAnswers(iQuestions, currentUser.getId());
 			} catch (SQLException e) {
@@ -95,18 +101,18 @@ public class NokiaControler implements  ActionListener{
 	public User startUserRegistration() {
 		UserRegistration ur = new UserRegistration(storage);
 		User user = ur.getUser();
-		while (user == null ) {
-			user = ur.getUser();
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+//		while (user == null ) {
+//			user = ur.getUser();
+//			try {
+//				Thread.sleep(1000);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
 		
-		return user ; 
+		return user; 
 	}
 	
-	
+
 }
