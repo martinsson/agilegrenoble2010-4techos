@@ -92,4 +92,5 @@ public class UserRegistration extends JFrame {
 		
 		return user;
 	}
+	
 }

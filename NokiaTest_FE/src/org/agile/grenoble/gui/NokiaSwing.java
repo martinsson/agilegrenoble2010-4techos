@@ -35,6 +35,7 @@ import org.agile.grenoble.questions.AnswersType;
 import org.agile.grenoble.questions.ConfigurationType;
 import org.agile.grenoble.questions.QuestionType;
 import org.agile.grenoble.questions.QuestionsType;
+import org.agile.grenoble.user.User;
 
 class MyActionLogicListener implements ActionListener, ChangeListener {
 
@@ -143,26 +144,21 @@ public class NokiaSwing  extends JFrame {
 	
 	private static final int globalHeight = 500;
 	private static final int globalWidth = 600;
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -8322709712160036058L;
-
-	public NokiaSwing ()  { 
-		super();
-		initContent();
-	}
-
-	private void initContent() {
-		setTitle("Nokia Test") ;		
-	}
-
-	
 	JPanel [] iPanel=  null;
 	JPanel iNavBar = null ;
 	JButton  nextOrTerminate = null ;
 	JPanel welcome = null;
+
+	private String userName = "undefined";
+
+	public NokiaSwing ()  { 
+		super();
+	}
+
+	private void initContent() {
+		setTitle("Nokia Test - user '" + this.userName + "'" ) ;		
+	}
 	
 	//temporary 
 	public void generateQuestionDisplay(QuestionsType pQuestions) throws Exception {		
@@ -204,7 +200,6 @@ public class NokiaSwing  extends JFrame {
 		return questionsPanels;
 	}
 		
-	private static final String	FILENAME = "src/resources/images/question.JPG";
 
 	/** 
 	 * We return a panel per question, allowing us to display several panel in the same page
@@ -318,6 +313,7 @@ public class NokiaSwing  extends JFrame {
 
 	@SuppressWarnings("deprecation")
 	public void displayFirstquestion() {
+		initContent();
 		getContentPane().setBackground(Color.lightGray);
 		//TODO remove welcome message
 		//getContentPane().remove(welcome);
@@ -339,7 +335,7 @@ public class NokiaSwing  extends JFrame {
 		getContentPane().add(iPanel[currentQuestionIndex], BorderLayout.NORTH);
 		//TODO add i18n
 		if (isLast) {
-			nextOrTerminate.setLabel(Messages.getString("NokiaTest.goHome"));
+			nextOrTerminate.setLabel(Messages.getString("NokiaTest.goHome") + " " + this.userName + " !");
 		} else {
 			nextOrTerminate.setLabel(Messages.getString("NokiaTest.next"));
 		}
@@ -349,8 +345,14 @@ public class NokiaSwing  extends JFrame {
 		
 	}
 
-	public void TerminateTest() {
+	public void terminateTest() {
 		dispose();
 		
+	}
+
+	public void setUserName(User user) {
+		if (user == null) {
+			this.userName = user.getName();
+		}
 	}
 }

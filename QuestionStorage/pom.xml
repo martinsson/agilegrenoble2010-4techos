@@ -249,7 +249,7 @@
 		
 	<dependency>
 		<groupId>org.agile4techos.nokiatest</groupId>
-		<artifactId>questiontype</artifactId>
+		<artifactId>questionType</artifactId>
 		<version>1.0.0</version>
 		<type>jar</type>
 		<scope>compile</scope>
