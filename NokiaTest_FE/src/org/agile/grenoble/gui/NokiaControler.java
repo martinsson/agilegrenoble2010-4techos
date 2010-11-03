@@ -78,7 +78,11 @@ public class NokiaControler implements  ActionListener{
 	 */
 //	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		if (currentQuestionIndex == iQuestions.sizeOfQuestionArray() -1 ) {
+		if (currentQuestionIndex < iQuestions.sizeOfQuestionArray()  ) {
+			currentQuestionIndex++;
+			boolean isLast = ( currentQuestionIndex == iQuestions.sizeOfQuestionArray()-1); 
+			iNokiaSwing.nextQuestion(currentQuestionIndex,isLast);
+		} else {
 			iNokiaSwing.terminateTest();
 			try {
 				storage.storeAnswers(iQuestions, currentUser.getId());
@@ -86,10 +90,6 @@ public class NokiaControler implements  ActionListener{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else {
-			currentQuestionIndex++;
-			boolean isLast = ( currentQuestionIndex == iQuestions.sizeOfQuestionArray()-1); 
-			iNokiaSwing.nextQuestion(currentQuestionIndex,isLast);
 		}
 	}
 

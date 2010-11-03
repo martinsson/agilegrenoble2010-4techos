@@ -35,7 +35,7 @@ public class AnswersStorage {
 		Connection conn = null; 
 		try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-	        conn = DriverManager.getConnection("jdbc:mysql://localhost/NokiaTest?" + 
+	        conn = DriverManager.getConnection("jdbc:mysql://localhost/?" + 
 		                                    "user=root&password=agile123");
 
 		 } catch (SQLException e) {
@@ -82,34 +82,22 @@ public class AnswersStorage {
 	private void initDB(Connection conn,QuestionsType questions) throws SQLException {
 		Statement stat = conn.createStatement() ;
 		//add the ifnot exist, as the installation may be incremental
-		boolean res = stat.execute("Create database IF NOT EXISTS NokiaTest");
-		if (res) {
-			System.out.println("Creation of database succeed" );
-		} else {
-			System.out.println("DB not created, should exist");
-		}
-		stat.close();
-		stat = conn.createStatement() ;
-		res &= createSurveyTable(stat);
-		if (res) {
-			System.out.println("Creation of survey table  succeed" );
-		}
-		stat.close();
-		stat = conn.createStatement() ;
-		res &= createVersionTable(stat);
-		if (res) {
-			System.out.println("Creation of version table  succeed" );
-		}
+		executeQuery(stat, "Create database IF NOT EXISTS NokiaTest");
+		executeQuery(stat, "Drop table IF EXISTS NokiaTest.surveys");
+		executeQuery(stat, "Create table NokiaTest.surveys (anId INT AUTO_INCREMENT UNIQUE, aName VARCHAR(56), anEmail VARCHAR(56), aDate TIMESTAMP)") ;
+		executeQuery(stat, "Drop table IF EXISTS NokiaTest.versions");
+		executeQuery(stat, "Create table NokiaTest.versions (anId INT AUTO_INCREMENT UNIQUE, aVersion VARCHAR(56), aDate TIMESTAMP)") ;
+		executeQuery(stat, "insert into NokiaTest.versions (aVersion) values ("+schemaVersion+")");
+		
 		//TODO generate schema from table definition ... simple/complex....
 		for (int i =0 ; i < questions.getQuestionArray().length; i++) {
-				res &= createTableForQuestions(stat,questions.getQuestionArray(i),i);
+				createTableForQuestions(stat,questions.getQuestionArray(i),i);
 		}	
-		if (res) {
-			System.out.println("Creation of table surveys succeed" );
-		} else {
-			System.out.println("Creation of table surveys failed" );
-		}
 		stat.close();
+	}
+
+	private void executeQuery(Statement stat, String query) throws SQLException {
+		stat.execute(query);
 	}
 
 	private int getNbFields(QuestionType question) {
@@ -128,26 +116,6 @@ public class AnswersStorage {
 		
 		return nb ;
 	}
-
-	private boolean createSurveyTable(Statement stat) throws SQLException {		
-		boolean res = stat.execute("Drop table IF EXISTS NokiaTest.surveys");
-		System.out.println("Drop table (survey) status " + res ) ;
-		res &= stat.execute("Create table NokiaTest.surveys (anId INT AUTO_INCREMENT UNIQUE, aName VARCHAR(56), anEmail VARCHAR(56), aDate TIMESTAMP)") ;
-		return res ;
-	}
-
-	private boolean createVersionTable(Statement stat) throws SQLException {		
-		boolean res = stat.execute("Drop table IF EXISTS NokiaTest.versions");
-		System.out.println("Drop table  (version) status " + res ) ;
-		res &= stat.execute("Create table NokiaTest.versions (anId INT AUTO_INCREMENT UNIQUE, aVersion VARCHAR(56), aDate TIMESTAMP)") ;
-		System.out.println("Create table status " + res ) ;
-		res &= stat.execute("insert into NokiaTest.versions (aVersion) values ("+schemaVersion+")");
-		System.out.println("Version insertion status " + res ) ;
-		return res ;
-	}
-
-
-
 
 	private boolean createTableForQuestions(Statement stat,	QuestionType question, int indice) 
 		throws SQLException {
