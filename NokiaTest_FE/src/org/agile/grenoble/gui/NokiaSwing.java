@@ -25,6 +25,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -190,13 +191,16 @@ public class NokiaSwing  extends JFrame {
 	/* 
 	 * Took a list of question, and build the panel. There's a panel per question.
 	 * */
-	private JPanel[] generateQuestionsPanels(QuestionsType pQuestions) throws Exception {		
-	   JPanel[] questionsPanels = new JPanel[pQuestions.getQuestionArray().length];
+	protected JPanel[] generateQuestionsPanels(QuestionsType pQuestions) throws Exception {		
+	   int nbQuestions = pQuestions.getQuestionArray().length;
+	   JPanel[] questionsPanels = new JPanel[nbQuestions + 1];
 		
-		for (int i=0; i < pQuestions.getQuestionArray().length; i++) {
+		for (int i=0; i < nbQuestions; i++) {
 			questionsPanels[i] = generateQuestionPanel(pQuestions.getQuestionArray()[i]);
-
 		}
+		
+		questionsPanels[questionsPanels.length - 1] = new QuestionPanel();
+		
 		return questionsPanels;
 	}
 		
