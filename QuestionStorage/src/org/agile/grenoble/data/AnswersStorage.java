@@ -1,5 +1,6 @@
 package org.agile.grenoble.data;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,22 +14,22 @@ import org.agile.grenoble.user.User;
 
 import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
 
-import java.sql.Connection ;
-
-import javax.swing.JTextField;
-
 public class AnswersStorage {
 
-	Connection conn = null ; 
+	private Connection conn = null ; 
 	int schemaVersion = 2 ;
 	
-	private Connection getConnection() {
+	protected Connection getConnection() {
 		if (conn == null ) {
 			conn = createConnection();
 			return conn ;
 		} else {
 			return conn ;
 		}
+	}
+	
+	protected void setConnection(Connection conn) {
+		this.conn = conn;
 	}
 	
 	private Connection createConnection() {
@@ -79,7 +80,7 @@ public class AnswersStorage {
 		}
 	}
 	
-	private void initDB(Connection conn,QuestionsType questions) throws SQLException {
+	protected void initDB(Connection conn,QuestionsType questions) throws SQLException {
 		Statement stat = conn.createStatement() ;
 		//add the ifnot exist, as the installation may be incremental
 		executeQuery(stat, "Create database IF NOT EXISTS NokiaTest");
@@ -96,7 +97,7 @@ public class AnswersStorage {
 		stat.close();
 	}
 
-	private void executeQuery(Statement stat, String query) throws SQLException {
+	protected void executeQuery(Statement stat, String query) throws SQLException {
 		stat.execute(query);
 	}
 
@@ -159,7 +160,7 @@ public class AnswersStorage {
 	}
 	
 	
-	private User createUser(Statement stat, String pName, String pEmail) throws SQLException {
+	protected User createUser(Statement stat, String pName, String pEmail) throws SQLException {
 		boolean ok = stat.execute("INSERT INTO nokiatest.surveys (aName,anEmail) VALUES ('"+pName+"','"+pEmail+"');");
 		if (!ok) System.out.println("Fail to add a new user") ;
 		User iUser = new User();
@@ -238,6 +239,12 @@ public class AnswersStorage {
 		int res = stat.executeUpdate(query);
 		System.out.println("We have update "+res + " rows");
 		return (res==1); 
+	}
+
+	protected void dropDatabaseIfExist() throws SQLException {
+		Statement stat = getConnection().createStatement() ;
+		executeQuery(stat, "Drop database IF EXISTS NokiaTest");
+		stat.close();
 	}
 	
 }
