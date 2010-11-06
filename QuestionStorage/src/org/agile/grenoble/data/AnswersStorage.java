@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.MessageFormat;
 
 import org.agile.grenoble.questions.AnswerType;
 import org.agile.grenoble.questions.ConfigurationType;
@@ -17,7 +18,18 @@ import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
 public class AnswersStorage {
 
 	private Connection conn = null ; 
-	int schemaVersion = 2 ;
+	protected static final String SELECT_FROM_NOKIA_TEST_VERSIONS_ORDER_BY_AN_ID = "select * from NokiaTest.versions order by anId";
+	protected static final String CREATE_DATABASE_IF_NOT_EXISTS_NOKIA_TEST = "Create database IF NOT EXISTS NokiaTest";
+	protected static final String DROP_TABLE_IF_EXISTS_NOKIA_TEST_SURVEYS = "Drop table IF EXISTS NokiaTest.surveys";
+	protected static final String CREATE_TABLE_NOKIA_TEST_SURVEYS = "Create table NokiaTest.surveys (anId INT AUTO_INCREMENT UNIQUE, aName VARCHAR(56), anEmail VARCHAR(56), aDate TIMESTAMP)";
+	protected static final String DROP_TABLE_IF_EXISTS_NOKIA_TEST_VERSIONS = "Drop table IF EXISTS NokiaTest.versions";
+	protected static final String CREATE_TABLE_NOKIA_TEST_VERSIONS = "Create table NokiaTest.versions (anId INT AUTO_INCREMENT UNIQUE, aVersion VARCHAR(56), aDate TIMESTAMP)";
+	private static int schemaVersion = 2 ;
+	protected static final String INSERT_INTO_NOKIA_TEST_VERSIONS = MessageFormat.format(
+			"insert into NokiaTest.versions (aVersion) values ({0})",
+			schemaVersion);
+	protected static final String SELECT_AN_ID_A_NAME_AN_EMAIL_FROM_NOKIATEST_SURVEYS = "Select anId, aName, anEmail from nokiatest.surveys where aName=''{0}'' ;";
+	protected static final String INSERT_INTO_NOKIATEST_SURVEYS_A_NAME_AN_EMAIL = "INSERT INTO nokiatest.surveys (aName,anEmail) VALUES (''{0}'',''{1}'');";
 	
 	protected Connection getConnection() {
 		if (conn == null ) {
@@ -63,7 +75,7 @@ public class AnswersStorage {
 			Statement stat = conn.createStatement();
 			ResultSet res = null; 
 			try {
-				res = stat.executeQuery("select * from NokiaTest.versions order by anId");
+				res = stat.executeQuery(SELECT_FROM_NOKIA_TEST_VERSIONS_ORDER_BY_AN_ID);
 			} catch (MySQLSyntaxErrorException e) {
 				System.out.println("No result: " +e );
 				//e.printStackTrace();
@@ -83,12 +95,12 @@ public class AnswersStorage {
 	protected void initDB(Connection conn,QuestionsType questions) throws SQLException {
 		Statement stat = conn.createStatement() ;
 		//add the ifnot exist, as the installation may be incremental
-		executeQuery(stat, "Create database IF NOT EXISTS NokiaTest");
-		executeQuery(stat, "Drop table IF EXISTS NokiaTest.surveys");
-		executeQuery(stat, "Create table NokiaTest.surveys (anId INT AUTO_INCREMENT UNIQUE, aName VARCHAR(56), anEmail VARCHAR(56), aDate TIMESTAMP)") ;
-		executeQuery(stat, "Drop table IF EXISTS NokiaTest.versions");
-		executeQuery(stat, "Create table NokiaTest.versions (anId INT AUTO_INCREMENT UNIQUE, aVersion VARCHAR(56), aDate TIMESTAMP)") ;
-		executeQuery(stat, "insert into NokiaTest.versions (aVersion) values ("+schemaVersion+")");
+		executeQuery(stat, CREATE_DATABASE_IF_NOT_EXISTS_NOKIA_TEST);
+		executeQuery(stat, DROP_TABLE_IF_EXISTS_NOKIA_TEST_SURVEYS);
+		executeQuery(stat, CREATE_TABLE_NOKIA_TEST_SURVEYS) ;
+		executeQuery(stat, DROP_TABLE_IF_EXISTS_NOKIA_TEST_VERSIONS);
+		executeQuery(stat, CREATE_TABLE_NOKIA_TEST_VERSIONS) ;
+		executeQuery(stat, INSERT_INTO_NOKIA_TEST_VERSIONS);
 		
 		//TODO generate schema from table definition ... simple/complex....
 		for (int i =0 ; i < questions.getQuestionArray().length; i++) {
@@ -118,7 +130,7 @@ public class AnswersStorage {
 		return nb ;
 	}
 
-	private boolean createTableForQuestions(Statement stat,	QuestionType question, int indice) 
+	protected boolean createTableForQuestions(Statement stat,	QuestionType question, int indice) 
 		throws SQLException {
 		
 		String fields = ""; 
@@ -140,14 +152,14 @@ public class AnswersStorage {
 		User user = null ; 
 		if (conn != null) { 
 			Statement stat = conn.createStatement();
-			ResultSet res = stat.executeQuery("Select anId, aName, anEmail from nokiatest.surveys where aName='"+pName+"' ;") ;
+			ResultSet res = stat.executeQuery(MessageFormat.format(SELECT_AN_ID_A_NAME_AN_EMAIL_FROM_NOKIATEST_SURVEYS,pName));
 			user = new User();
 			if ((res != null) && res.next() ) {
 				user.setName(res.getString(2));
 				user.setEmail(res.getString(3));
 				user.setId(res.getInt(1));
 			} else {
-				System.out.println("No result, should create a new one");
+				System.out.println("No user found, should create a new one");
 				user = createUser(stat, pName,pEmail);
 			}
 			res.close();
@@ -161,11 +173,15 @@ public class AnswersStorage {
 	
 	
 	protected User createUser(Statement stat, String pName, String pEmail) throws SQLException {
-		boolean ok = stat.execute("INSERT INTO nokiatest.surveys (aName,anEmail) VALUES ('"+pName+"','"+pEmail+"');");
+		boolean ok = stat.execute(MessageFormat.format(INSERT_INTO_NOKIATEST_SURVEYS_A_NAME_AN_EMAIL, pName, pEmail));
 		if (!ok) System.out.println("Fail to add a new user") ;
-		User iUser = new User();
-		iUser.setName(pName);
-		iUser.setEmail(pEmail);
+		User iUser = newUser(pName, pEmail);
+		selectLastInsertedUserId(stat, iUser);
+		System.out.println("Created user : " + pName + ", " + iUser.getEmail() + ","+ iUser.getId() );
+		return iUser ; 
+	}
+
+	protected void selectLastInsertedUserId(Statement stat, User iUser) throws SQLException {
 		ResultSet res = stat.executeQuery("SELECT LAST_INSERT_ID();");
 		if (res.next()) {
 			iUser.setId(res.getInt(1));
@@ -174,8 +190,13 @@ public class AnswersStorage {
 			iUser.setId(-1);
 		}
 		res.close();
-		System.out.println("Create a user : " + pName + ", " + iUser.getEmail() + ","+ iUser.getId() );
-		return iUser ; 
+	}
+
+	private User newUser(String pName, String pEmail) {
+		User iUser = new User();
+		iUser.setName(pName);
+		iUser.setEmail(pEmail);
+		return iUser;
 	}
 
 	public void storeAnswers(QuestionsType questions, int pUserId) throws SQLException {
@@ -239,12 +260,6 @@ public class AnswersStorage {
 		int res = stat.executeUpdate(query);
 		System.out.println("We have update "+res + " rows");
 		return (res==1); 
-	}
-
-	protected void dropDatabaseIfExist() throws SQLException {
-		Statement stat = getConnection().createStatement() ;
-		executeQuery(stat, "Drop database IF EXISTS NokiaTest");
-		stat.close();
 	}
 	
 }
