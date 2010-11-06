@@ -1,5 +1,7 @@
 package org.agile.grenoble.gui;
 
+import static org.junit.Assert.*;
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,8 +13,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import org.agile.grenoble.data.AnswersStorage;
+import org.agile.grenoble.questions.AnswerType;
+import org.agile.grenoble.questions.QuestionType;
 import org.agile.grenoble.questions.QuestionsType;
 import org.agile.grenoble.user.User;
+import org.junit.Test;
 /*
  * MVC model, the controler will control the gui, and send proper information 
  * to storage mechanism
@@ -20,6 +25,10 @@ import org.agile.grenoble.user.User;
  */
 public class NokiaControler implements  ActionListener{
 
+	@Test
+	public void testname() throws Exception {
+		
+	}
 	/* constructor */
 	public NokiaControler() {
 		
@@ -78,6 +87,14 @@ public class NokiaControler implements  ActionListener{
 	 */
 //	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		QuestionType questionType = iQuestions.getQuestionArray()[currentQuestionIndex];
+		boolean isset = false;
+		for (AnswerType answer : questionType.getAnswers().getAnswerArray()) {
+			isset |= answer.getSelected() == AnswerType.Selected.TRUE;
+		}
+		if (!isset) return;
+		if ( !questionType.isSetAnswers())
+			return;
 		if (currentQuestionIndex < iQuestions.sizeOfQuestionArray()  ) {
 			currentQuestionIndex++;
 			boolean isLast = ( currentQuestionIndex == iQuestions.sizeOfQuestionArray()-1); 
