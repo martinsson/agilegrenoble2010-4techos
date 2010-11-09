@@ -37,25 +37,25 @@ public class NokiaSwingTest {
 		questionsType = QuestionsReader.readItems(filename);
 	}
 	
-	@Ignore
+	@Test
 	public void generateQuestionsPanels() throws Exception {
 		NokiaSwing nokiaSwing = new NokiaSwing();
 		JPanel[] questionsPanel = nokiaSwing.generateQuestionsPanels(questionsType);
 		assertThat(questionsPanel.length, equalTo(7));
 	}
 	
-	@Test
-	public void addScorePanelToQuestionsPanels() throws Exception {
-		NokiaSwing nokiaSwing = new NokiaSwing();
-		JPanel[] questionsPanel = nokiaSwing.generateQuestionsPanels(questionsType);
-		assertThat(questionsPanel.length, equalTo(8));
-		JPanel scorePanel = questionsPanel[7];
-
-		assertThat(scorePanel, instanceOf(QuestionPanel.class));
-		MatcherAssert.assertThat(scorePanel, hasTextField(startsWith("NokiaTest result is")));
-		
-	}
-	
+//	@Test
+//	public void addScorePanelToQuestionsPanels() throws Exception {
+//		NokiaSwing nokiaSwing = new NokiaSwing();
+//		JPanel[] questionsPanel = nokiaSwing.generateQuestionsPanels(questionsType);
+//		assertThat(questionsPanel.length, equalTo(8));
+//		JPanel scorePanel = questionsPanel[7];
+//
+//		assertThat(scorePanel, instanceOf(QuestionPanel.class));
+//		MatcherAssert.assertThat(scorePanel, hasTextField(startsWith("NokiaTest result is")));
+//		
+//	}
+//	
 //    private Matcher<Component[]> hasTextComponent(
 //			Matcher<JTextComponent> matcher) {
 ////    	return new TypeSafeDiagnosingMatcher<Component>() {
