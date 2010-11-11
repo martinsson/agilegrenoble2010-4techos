@@ -8,6 +8,7 @@ import static org.junit.Assert.assertThat;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.StringDescription;
 import org.junit.Test;
@@ -41,10 +42,13 @@ public class HasTextFieldTest {
 		Matcher<JPanel> matcher = hasTextField(addedConstraint);
 		JPanel panel = new JPanel();
 		panel.add(new JTextField("some Other text"));
-		StringDescription description = new StringDescription();
 		
+		StringDescription description = new StringDescription();
 		matcher.describeMismatch(panel, description);
-		assertThat(description.toString(), equalTo("got a JPanel with " + addedConstraint.toString()));
+
+//		Description equalToDescription = new StringDescription();
+//		addedConstraint.describeMismatch("some Other text", equalToDescription);
+		assertThat(description.toString(), equalTo("got a JPanel with " + "\"some Other text\""));
 
 		assertThat("expected mismatch", matcher.matches(panel), is(false));
 	}

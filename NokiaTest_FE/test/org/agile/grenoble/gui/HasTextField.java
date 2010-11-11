@@ -36,7 +36,7 @@ final class HasTextField extends TypeSafeDiagnosingMatcher<JPanel> {
 			result = false;
 		}
 		else if ( ! hasItem(matcher).matches(extractTextFields(components))) {
-			mismatchDescription.appendText("got a JPanel with ").appendDescriptionOf(matcher);
+			mismatchDescription.appendText("got a JPanel with ").appendText("\""+extractTextFields(components).get(0)+"\"");
 			result = false;
 		}
 		return result;
