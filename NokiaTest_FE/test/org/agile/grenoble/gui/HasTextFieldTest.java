@@ -45,7 +45,7 @@ public class HasTextFieldTest {
 		StringDescription description = new StringDescription();
 		matcher.describeMismatch(panel, description);
 
-		assertThat(description.toString(), equalTo("got a JPanel with " + "\"some Other text\""));
+		assertThat(description.toString(), equalTo("got a JPanel with a JTextField with " + "\"some Other text\""));
 
 		assertThat("expected mismatch", matcher.matches(panel), is(false));
 	}
