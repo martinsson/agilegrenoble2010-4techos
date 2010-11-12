@@ -1,28 +1,13 @@
 package org.agile.grenoble.gui;
 
-import static java.util.Arrays.asList;
-import static org.agile.grenoble.gui.HasTextField.hasTextField;
-import static org.hamcrest.CoreMatchers.allOf;
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.hasItem;
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.hamcrest.CoreMatchers.startsWith;
-import static org.hamcrest.Matchers.hasItemInArray;
-import static org.junit.Assert.assertThat;
-
-import java.awt.Component;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import javax.swing.JPanel;
-import javax.swing.text.JTextComponent;
 
 import org.agile.grenoble.data.xml.QuestionsReader;
 import org.agile.grenoble.questions.QuestionsType;
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.TypeSafeDiagnosingMatcher;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 
