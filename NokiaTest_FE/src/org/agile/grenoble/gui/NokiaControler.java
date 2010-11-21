@@ -78,7 +78,7 @@ public class NokiaControler implements  ActionListener{
 	 */
 //	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		if (currentQuestionIndex < iQuestions.sizeOfQuestionArray()  ) {
+		if (currentQuestionIndex < iQuestions.sizeOfQuestionArray() -1 ) {
 			currentQuestionIndex++;
 			boolean isLast = ( currentQuestionIndex == iQuestions.sizeOfQuestionArray()-1); 
 			iNokiaSwing.nextQuestion(currentQuestionIndex,isLast);
